@@ -42,18 +42,12 @@ At least two installation modes are provided: user and developer.
 For users
 ^^^^^^^^^
 
-In order to install the Filetransfer Utility Python Client, make sure you
-have the required build system tool. To do so, run:
+In order to install the Filetransfer Utility Python Client, you can execute
+the following command in the Python (virtual) environment of your choice:
 
 .. code:: bash
 
-    python -m pip install -U pip poetry
-
-Then, you can simply execute:
-
-.. code:: bash
-
-    poetry run python -m pip install ansys-utilities-filetransfer
+    python -m pip install ansys-utilities-filetransfer
 
 For developers
 ^^^^^^^^^^^^^^
@@ -64,50 +58,39 @@ you to modify the source and enhance it.
 Before contributing to the project, please refer to the `PyAnsys Developer's guide`_. You will
 need to follow these steps:
 
-1. Start by cloning this repository:
+1. Start by cloning this repository, and enterint the newly created directory:
 
     .. code:: bash
 
         git clone https://github.com/pyansys/ansys-utilities-filetransfer
+        cd ansys-utilities-filetransfer
 
-2. Create a fresh-clean Python environment and activate it:
-
-    .. code:: bash
-
-        # Create a virtual environment
-        python -m venv .venv
-
-        # Activate it in a POSIX system
-        source .venv/bin/activate
-
-        # Activate it in Windows CMD environment
-        .venv\Scripts\activate.bat
-
-        # Activate it in Windows Powershell
-        .venv\Scripts\Activate.ps1
-
-3. Make sure you have the latest required build system and doc, testing, and CI tools:
+2. Make sure you have the latest version of poetry:
 
     .. code:: bash
 
-        python -m pip install -U pip poetry tox
-        python -m pip install -r requirements/requirements_build.txt
-        python -m pip install -r requirements/requirements_doc.txt
-        python -m pip install -r requirements/requirements_tests.txt
+        python -m pip install pipx
+        pipx ensurepath
+        pipx install poetry
 
-
-4. Install the project in editable mode:
+3. Install the project and its development dependencies using poetry. This also takes care of
+    creating a new virtual environment:
 
     .. code:: bash
 
-        poetry run python -m pip install ansys-utilities-filetransfer
+        poetry install -E doc -E tests -E build -E style
 
-    5. Finally, verify your development installation by running:
+4. Activate your development virtual environment with:
+
+    .. code:: bash
+
+        poetry shell
+
+5. Verify your development installation by running:
 
     .. code:: bash
 
         tox
-
 
 How to testing
 --------------
@@ -142,11 +125,11 @@ A note on pre-commit
 ^^^^^^^^^^^^^^^^^^^^
 
 The style checks take advantage of `pre-commit`_. Developers are not forced but
-encouraged to install this tool via:
+encouraged to install this tool as a git hook via:
 
 .. code:: bash
 
-    python -m pip install pre-commit && pre-commit install
+    poetry install -E style && pre-commit install
 
 
 Documentation
@@ -174,14 +157,14 @@ the building requirements:
 
 .. code:: bash
 
-    python -m pip install -r requirements/requirements_build.txt
+    poetry install -E build
 
 Then, you can execute:
 
 .. code:: bash
 
-        poetry build
-        python -m twine check dist/*
+    poetry build
+    python -m twine check dist/*
 
 .. LINKS AND REFERENCES
 .. _black: https://github.com/psf/black
