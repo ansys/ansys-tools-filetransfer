@@ -58,6 +58,10 @@ class Client:
             ],
         )
         if job_name:
+            # TODO: AFAICT, this module comes from an example in the gRPC repository:
+            # `<grpc>/examples/python/interceptors/headers/header_manipulator_client_interceptor.py`.
+            # We should either find a way to depend directly on that code, or
+            # vendor the corresponding part.
             from grpc_interceptor_headers.header_manipulator_client_interceptor import (
                 header_adder_interceptor,
             )
@@ -129,7 +133,7 @@ class Client:
             file do not match.
 
         """
-        file_size = 0
+        # file_size = 0
         sha1sum = "0"
         n_bytes_received = 0
 
@@ -160,7 +164,7 @@ class Client:
                 self._check_result(response.result)
                 self._log_progress("download_file", response.progress)
                 if response.WhichOneof("sub_step") == "file_info":
-                    file_size = int(response.file_info.size)
+                    # file_size = int(response.file_info.size)
                     sha1sum = str(response.file_info.sha1.hex_digest)
                 elif response.WhichOneof("sub_step") == "file_data":
                     f.write(response.file_data.data)
@@ -168,7 +172,7 @@ class Client:
                 else:
                     pass
 
-        size_of_file_in_bytes = os.stat(local_filename)[stat.ST_SIZE]
+        # size_of_file_in_bytes = os.stat(local_filename)[stat.ST_SIZE]
         if compute_sha1_checksum:
             hexdigest = _get_file_hash(local_filename, "sha1")
             if hexdigest != sha1sum:

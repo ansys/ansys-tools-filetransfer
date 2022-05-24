@@ -72,6 +72,6 @@ strict = true
 module = [
     "grpc.*",
     "grpc_health.*",
-    "grpc_interceptor_headers.*",
+    "grpc_interceptor_headers.*", # TODO: remove
 ]
 ignore_missing_imports = true
