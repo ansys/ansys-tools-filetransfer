@@ -58,7 +58,7 @@ you to modify the source and enhance it.
 Before contributing to the project, please refer to the `PyAnsys Developer's guide`_. You will
 need to follow these steps:
 
-1. Start by cloning this repository, and enterint the newly created directory:
+1. Start by cloning this repository, and entering the newly created directory:
 
     .. code:: bash
 
@@ -74,7 +74,7 @@ need to follow these steps:
         pipx install poetry
 
 3. Install the project and its development dependencies using poetry. This also takes care of
-    creating a new virtual environment:
+   creating a new virtual environment:
 
     .. code:: bash
 
@@ -107,8 +107,8 @@ own virtual environment so anything being tested is isolated from the project in
 order to guarantee project's integrity. The following environments commands are provided:
 
 - **tox -e style**: will check for coding style quality.
-- **tox -e py**: checks for unit tests.
-- **tox -e py-coverage**: checks for unit testing and code coverage.
+- **tox -e py-pytest**: checks for unit tests.
+- **tox -e py-pytest-coverage**: checks for unit testing and code coverage.
 - **tox -e doc**: checs for documentation building process.
 
 
