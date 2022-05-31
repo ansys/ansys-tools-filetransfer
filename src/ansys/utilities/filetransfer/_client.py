@@ -10,7 +10,7 @@ the Ansys filetransfer utility via gRPC.
 import hashlib
 import os
 import stat
-from typing import Generator, Optional, Union
+from typing import Generator, Optional
 
 import grpc
 
