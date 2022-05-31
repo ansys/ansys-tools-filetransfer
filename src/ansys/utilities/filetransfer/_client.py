@@ -23,65 +23,71 @@ from ._log import LOGGER
 
 
 class Client:
-    """Ansys Meshing geometry high-level model client module.
+    """Ansys Filetransfer Utility high-level client module.
 
     The filetransfer client provides a high-level API for uploading and
     downloading files to the filetransfer server.
     """
 
-    def __init__(
-        self,
-        server_address: str,
-        max_message_length: int = 1 << 30,
-        job_name: Optional[str] = None,
-    ):
+    def __init__(self, channel: grpc.Channel, max_message_length: Optional[int] = None):
         """Initialize the client.
 
         Parameters
         ----------
-        server_address :
-            The IPv4 address and port of the server to connect to, e.g. `10.0.0.42:12345`
+        channel :
+            The gRPC channel on which the client communicates with the
+            server.
         max_message_length :
-
-
+            The maximum message size which is configured on the given
+            channel. Note that this does **not** change the channel
+            configuration. The parameter is used to check that the
+            ``chunk_size`` used for up- and download fits within the
+            ``max_message_length``, with some slack.
         """
-        if not server_address:
-            raise ValueError("empty grpc channel url given")
-        self._server_address = server_address
-        self._max_message_length = max_message_length
-        # connect and create stub
-        self._channel = grpc.insecure_channel(
-            self._server_address,
-            options=[
-                ("grpc.max_send_message_length", self._max_message_length),
-                ("grpc.max_receive_message_length", self._max_message_length),
-            ],
-        )
-        if job_name:
-            # TODO: AFAICT, this module comes from an example in the gRPC repository:
-            # `<grpc>/examples/python/interceptors/headers/header_manipulator_client_interceptor.py`.
-            # We should either find a way to depend directly on that code, or
-            # vendor the corresponding part.
-            from grpc_interceptor_headers.header_manipulator_client_interceptor import (
-                header_adder_interceptor,
-            )
-
-            self._channel = grpc.intercept_channel(
-                self._channel, header_adder_interceptor("service-name", job_name)
-            )
-
+        self._channel = channel
+        if max_message_length is None:
+            # Set the max_message_length to 4GB if it is not set.
+            # This is the technical limit, see
+            # https://groups.google.com/g/google-cloud-endpoints/c/sYT4BopjohI
+            self._max_message_length = 1 << 32
+        else:
+            self._max_message_length = max_message_length
         self._filetransfer_stub = file_transfer_service_pb2_grpc.FileTransferServiceStub(
             self._channel
         )
 
-    @property
-    def server_address(self) -> str:
-        """Return the IPv4 address and port of the server.
+    @classmethod
+    def from_server_address(
+        cls,
+        server_address: str,
+        *,
+        max_message_length: int = 1 << 17,
+    ) -> "Client":
+        """Initialize the client from a server URL.
 
-        Returns the IPv4 address and port of the server the client is connected to
-        as a single string, e.g. `10.0.0.42:12345`.
+        Parameters
+        ----------
+        server_address :
+            The IPv4/IPv6 address and port of the server to connect to, e.g. `10.0.0.42:12345`
+        max_message_length :
+            Maximum length of messages sent over the channel, in bytes.
+
+        Returns
+        -------
+        :
+            The instantiated Filetransfer Client.
         """
-        return self._server_address
+        if not server_address:
+            raise ValueError("Empty server address given.")
+
+        channel = grpc.insecure_channel(
+            server_address,
+            options=[
+                ("grpc.max_send_message_length", max_message_length),
+                ("grpc.max_receive_message_length", max_message_length),
+            ],
+        )
+        return cls(channel=channel, max_message_length=max_message_length)
 
     def _check_result(
         self, result: file_transfer_service_pb2.Result, last_error_msg: Optional[str] = None
@@ -102,6 +108,18 @@ class Client:
             )
         else:
             LOGGER.debug("[%s] progress : %d %%" % (call, progress.state))
+
+    def _check_chunk_size(self, chunk_size: int) -> None:
+        if chunk_size > self._max_message_length:
+            raise ValueError(
+                f"The chunk size '{chunk_size}' exceeds the maximum message length "
+                f"'{self._max_message_length}' of the gRPC channel."
+            )
+        elif (2 * chunk_size) > self._max_message_length:
+            LOGGER.warning(
+                f"The chunk size '{chunk_size}' is close to the maximum message length "
+                f"'{self._max_message_length}' of the gRPC channel."
+            )
 
     def download_file(
         self,
@@ -133,7 +151,8 @@ class Client:
             file do not match.
 
         """
-        # file_size = 0
+        self._check_chunk_size(chunk_size)
+
         sha1sum = "0"
         n_bytes_received = 0
 
@@ -201,6 +220,8 @@ class Client:
             Raises a RuntimeError in case of a response indicating an error on the server-side.
 
         """
+        self._check_chunk_size(chunk_size)
+
         # prepare
         size_of_file_in_bytes = os.stat(local_filename)[stat.ST_SIZE]
         sha1sum = _get_file_hash(local_filename, "sha1")
