@@ -47,9 +47,9 @@ class Client:
         self._channel = channel
         if max_message_length is None:
             # Set the max_message_length to 4GB if it is not set.
-            # This is the technical limit, see 
+            # This is the technical limit, see
             # https://groups.google.com/g/google-cloud-endpoints/c/sYT4BopjohI
-            self._max_message_length = 1 << 32 
+            self._max_message_length = 1 << 32
         else:
             self._max_message_length = max_message_length
         self._filetransfer_stub = file_transfer_service_pb2_grpc.FileTransferServiceStub(
