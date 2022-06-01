@@ -15,7 +15,7 @@ release = version = __version__
 html_logo = pyansys_logo_black
 html_theme = "pyansys_sphinx_theme"
 
-html_short_title = html_title = "ansys-utilities-filetransfer"
+html_title = html_short_title = "Filetransfer Utility Python Client"
 
 # specify the location of your github repo
 html_theme_options = {

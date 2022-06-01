@@ -65,6 +65,15 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.PYANSYS_CI_BOT_TOKEN }}@github.com/ansys/ansys-api-utilities-filetransfer".insteadOf "https://github.com/ansys/ansys-api-utilities-filetransfer"
           tox -e doc
+          touch .tox/doc_out/.nojekyll
+          echo "filetransfer-utility.docs.pyansys.com" >> .tox/doc_out/CNAME
+      - name: Deploy Documentation
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: .tox/doc_out
+          clean: true
 
 
   build:
