@@ -89,24 +89,9 @@ class Client:
         )
         return cls(channel=channel, max_message_length=max_message_length)
 
-    # def _check_result(
-    #     self, result: file_transfer_service_pb2.Result, last_error_msg: Optional[str] = None
-    # ) -> None:
-    #     """Check the result and raise an exception if not OK."""
-    #     if not result.ok:
-    #         raise RuntimeError(
-    #             result.message + (("\n%s" % last_error_msg) if last_error_msg is not None else ""),
-    #             result.status_code,
-    #         )
-
     def _log_progress(
         self, call: str, progress: file_transfer_service_pb2.ProgressResponse
     ) -> None:
-        # if progress.message:
-        #     LOGGER.debug(
-        #         "[%s] progress : %d %% (%s)" % (call, progress.state, str(progress.message))
-        #     )
-        # else:
         LOGGER.debug("[%s] progress : %d %%" % (call, progress.state))
 
     def _check_chunk_size(self, chunk_size: int) -> None:
@@ -259,7 +244,6 @@ class Client:
 
         # stream data
         for response in self._filetransfer_stub.UploadFile(upload_file_iterator()):
-            # self._check_result(response.result)
             self._log_progress("upload_file", response.progress)
 
 
