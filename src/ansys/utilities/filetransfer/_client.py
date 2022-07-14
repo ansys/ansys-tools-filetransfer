@@ -243,15 +243,14 @@ class Client:
             # 2) stream file content in chunks
             with open(local_filename, "rb") as f:
                 offset = 0
-                for chunk in iter(lambda: f.read(chunk_size), ""):
+                for chunk in iter(lambda: f.read(chunk_size), b""):
+                    assert len(chunk) > 0  # should be caught by the sentinel value in 'iter'
                     # send data
                     yield file_transfer_service_pb2.UploadFileRequest(
                         send_data=file_transfer_service_pb2.UploadFileRequest.SendData(
                             file_data=file_transfer_service_pb2.FileChunk(offset=offset, data=chunk)
                         )
                     )
-                    if len(chunk) == 0:
-                        break
                     offset += len(chunk)
             # 3) finalize
             yield file_transfer_service_pb2.UploadFileRequest(
