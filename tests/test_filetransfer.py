@@ -25,7 +25,7 @@ def compute_sha1_sum(request):
 @pytest.mark.parametrize("size_cases", get_sizes())
 def test_upload(server_channel, server_tmpdir, mounted_tmpdir, client_tmpdir, size_cases):
     file_size, chunk_size = size_cases
-    filename = f"test_file_{secrets.token_hex(8)}"
+    filename = f"test_file_üñıçよð€_{secrets.token_hex(8)}"
     local_filename_in = str(client_tmpdir / filename)
     remote_filename = str(server_tmpdir / filename)
     local_filename_out = str(mounted_tmpdir / filename)
@@ -37,6 +37,7 @@ def test_upload(server_channel, server_tmpdir, mounted_tmpdir, client_tmpdir, si
     client = Client(server_channel)
     client.upload_file(local_filename_in, remote_filename, chunk_size=chunk_size)
 
+    assert filename in [path.name for path in mounted_tmpdir.iterdir()]
     with open(local_filename_out, mode="rb") as in_f:
         content_out = in_f.read()
 
@@ -48,7 +49,7 @@ def test_download(
     server_channel, server_tmpdir, mounted_tmpdir, client_tmpdir, size_cases, compute_sha1_sum
 ):
     file_size, chunk_size = size_cases
-    filename = f"test_file_{secrets.token_hex(8)}"
+    filename = f"test_file_üñıçよð€_{secrets.token_hex(8)}"
 
     local_filename_in = str(mounted_tmpdir / filename)
     remote_filename = str(server_tmpdir / filename)
@@ -66,6 +67,7 @@ def test_download(
         chunk_size=chunk_size,
     )
 
+    assert filename in [path.name for path in client_tmpdir.iterdir()]
     with open(local_filename_out, mode="rb") as in_f:
         content_out = in_f.read()
 
