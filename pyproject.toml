@@ -39,9 +39,10 @@ twine = {version = ">=3.8", optional = true}
 tox = {version = "^3.25.0", optional = true}
 pre-commit = {version = "^2.19.0", optional = true}
 mypy = {version = "^0.950", optional = true}
+grpcio-health-checking = {version = "^1.47.0", optional = true}
 
 [tool.poetry.extras]
-tests = ["pytest", "pytest-cov", "tox"]
+tests = ["pytest", "pytest-cov", "tox", "grpcio-health-checking"]
 doc = ["Sphinx", "numpydoc", "pyansys_sphinx_theme", "Sphinx-copybutton"]
 build = ["build", "twine"]
 style = ["pre-commit", "mypy"]
@@ -66,7 +67,6 @@ show_missing = true
 
 [tool.mypy]
 python_version = 3.7
-strict = true
 
 [[tool.mypy.overrides]]
 module = [
