@@ -45,7 +45,7 @@ grpcio-health-checking = {version = "^1.47.0", optional = true}
 tests = ["pytest", "pytest-cov", "tox", "grpcio-health-checking"]
 doc = ["Sphinx", "numpydoc", "pyansys_sphinx_theme", "Sphinx-copybutton"]
 build = ["build", "twine"]
-style = ["pre-commit", "mypy"]
+style = ["pre-commit", "mypy", "pytest"]
 
 
 [tool.black]

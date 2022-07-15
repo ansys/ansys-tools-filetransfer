@@ -975,13 +975,13 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [extras]
 build = ["build", "twine"]
 doc = ["Sphinx", "numpydoc", "pyansys-sphinx-theme", "sphinx-copybutton"]
-style = ["pre-commit", "mypy"]
+style = ["pre-commit", "mypy", "pytest"]
 tests = ["pytest", "pytest-cov", "tox", "grpcio-health-checking"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "87ac173cd9d59246a7254bdd4ac647be5497f0c5946e6a1b8b77a9ca429c1379"
+content-hash = "2c3bf8136b7c899017e9460599390bbc39e830da6d80f15619ac784a74a7cfd2"
 
 [metadata.files]
 alabaster = [
