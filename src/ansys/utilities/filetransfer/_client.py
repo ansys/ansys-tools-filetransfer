@@ -89,25 +89,10 @@ class Client:
         )
         return cls(channel=channel, max_message_length=max_message_length)
 
-    def _check_result(
-        self, result: file_transfer_service_pb2.Result, last_error_msg: Optional[str] = None
-    ) -> None:
-        """Check the result and raise an exception if not OK."""
-        if not result.ok:
-            raise RuntimeError(
-                result.message + (("\n%s" % last_error_msg) if last_error_msg is not None else ""),
-                result.status_code,
-            )
-
     def _log_progress(
         self, call: str, progress: file_transfer_service_pb2.ProgressResponse
     ) -> None:
-        if progress.message:
-            LOGGER.debug(
-                "[%s] progress : %d %% (%s)" % (call, progress.state, str(progress.message))
-            )
-        else:
-            LOGGER.debug("[%s] progress : %d %%" % (call, progress.state))
+        LOGGER.debug("[%s] progress : %d %%" % (call, progress.state))
 
     def _check_chunk_size(self, chunk_size: int) -> None:
         if chunk_size > self._max_message_length:
@@ -126,7 +111,7 @@ class Client:
         remote_filename: str,
         local_filename: str,
         chunk_size: int = 1 << 16,
-        compute_sha1_checksum: bool = False,
+        compute_sha1_checksum: bool = True,
     ) -> None:
         """Download a file from the server.
 
@@ -140,7 +125,7 @@ class Client:
             The max. size of a chunk of data to be transferred per request (default 64K).
         compute_sha1_checksum :
             Flag whether to compute the SHA1-checksum of the file to be downloaded on the
-            server-side or not (default False).
+            server-side or not (default True).
 
         Raises
         ------
@@ -180,7 +165,7 @@ class Client:
         # stream data
         with open(local_filename, "wb") as f:
             for response in self._filetransfer_stub.DownloadFile(download_file_iterator()):
-                self._check_result(response.result)
+                # self._check_result(response.result)
                 self._log_progress("download_file", response.progress)
                 if response.WhichOneof("sub_step") == "file_info":
                     # file_size = int(response.file_info.size)
@@ -196,8 +181,8 @@ class Client:
             hexdigest = _get_file_hash(local_filename, "sha1")
             if hexdigest != sha1sum:
                 raise ValueError(
-                    "Checksum mismatch (%s != %s) between remote and local file, download failed!"
-                    % (hexdigest, str(sha1sum))
+                    "Checksum mismatch (%s != %s) between local and remote file, download failed!"
+                    % (hexdigest, sha1sum)
                 )
 
     def upload_file(
@@ -236,22 +221,21 @@ class Client:
                     file_info=file_transfer_service_pb2.FileInfo(
                         name=remote_filename,
                         size=size_of_file_in_bytes,
-                        sha1=file_transfer_service_pb2.SHA1(hex_digest=sha1sum.encode("utf-8")),
+                        sha1=file_transfer_service_pb2.SHA1(hex_digest=sha1sum),
                     )
                 )
             )
             # 2) stream file content in chunks
             with open(local_filename, "rb") as f:
                 offset = 0
-                for chunk in iter(lambda: f.read(chunk_size), ""):
+                for chunk in iter(lambda: f.read(chunk_size), b""):
+                    assert len(chunk) > 0  # should be caught by the sentinel value in 'iter'
                     # send data
                     yield file_transfer_service_pb2.UploadFileRequest(
                         send_data=file_transfer_service_pb2.UploadFileRequest.SendData(
                             file_data=file_transfer_service_pb2.FileChunk(offset=offset, data=chunk)
                         )
                     )
-                    if len(chunk) == 0:
-                        break
                     offset += len(chunk)
             # 3) finalize
             yield file_transfer_service_pb2.UploadFileRequest(
@@ -260,7 +244,6 @@ class Client:
 
         # stream data
         for response in self._filetransfer_stub.UploadFile(upload_file_iterator()):
-            self._check_result(response.result)
             self._log_progress("upload_file", response.progress)
 
 
