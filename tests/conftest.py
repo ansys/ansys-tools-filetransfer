@@ -1,8 +1,10 @@
 from contextlib import closing, contextmanager, suppress
+import os
 import pathlib
 import secrets
 import socket
 import subprocess
+import sys
 import tempfile
 import time
 
@@ -73,7 +75,7 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
         # check if the server has started by using the HealthCheck
         health_stub = HealthStub(channel)
         start_time = time.time()
-        timeout = 10.0
+        timeout = 30.0
         while time.time() - start_time <= timeout:
             with suppress(grpc.RpcError):
                 res = health_stub.Check(
@@ -84,7 +86,7 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
                     break
             time.sleep(timeout / 100)
         else:
-            raise RuntimeError(f"Server failed to start:\n{proc.stderr.read()}")
+            raise RuntimeError(f"Server failed to start.")
 
         yield channel
 
@@ -106,13 +108,17 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
         "run",
         "-v",
         f"/{pathlib.Path(mounted_tmpdir).resolve().as_posix().replace(':', '')}:{server_tmpdir}",
+    ]
+    if sys.platform == "linux":
+        cmd += ["-u", f"{os.getuid()}:{os.getgid()}"]
+    cmd += [
         "-p",
         f"{port}:50000/tcp",
         "--name",
         docker_containername,
         docker_imagename,
     ]
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
     yield proc
     subprocess.check_call(["docker", "container", "stop", "-t", "0", docker_containername])
 
