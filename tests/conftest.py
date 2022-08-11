@@ -86,7 +86,7 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
                     break
             time.sleep(timeout / 100)
         else:
-            raise RuntimeError(f"Server failed to start:\n{proc.stderr.read()}")
+            raise RuntimeError(f"Server failed to start.")
 
         yield channel
 
