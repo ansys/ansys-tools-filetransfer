@@ -75,7 +75,7 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
         # check if the server has started by using the HealthCheck
         health_stub = HealthStub(channel)
         start_time = time.time()
-        timeout = 10.0
+        timeout = 30.0
         while time.time() - start_time <= timeout:
             with suppress(grpc.RpcError):
                 res = health_stub.Check(
