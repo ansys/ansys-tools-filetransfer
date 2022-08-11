@@ -118,7 +118,7 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
         docker_containername,
         docker_imagename,
     ]
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
     yield proc
     subprocess.check_call(["docker", "container", "stop", "-t", "0", docker_containername])
 
