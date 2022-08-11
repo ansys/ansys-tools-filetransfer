@@ -1,8 +1,10 @@
 from contextlib import closing, contextmanager, suppress
+import os
 import pathlib
 import secrets
 import socket
 import subprocess
+import sys
 import tempfile
 import time
 
@@ -106,6 +108,10 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
         "run",
         "-v",
         f"/{pathlib.Path(mounted_tmpdir).resolve().as_posix().replace(':', '')}:{server_tmpdir}",
+    ]
+    if sys.platform == "linux":
+        cmd += ["-u", f"{os.getuid()}:{os.getgid()}"]
+    cmd += [
         "-p",
         f"{port}:50000/tcp",
         "--name",
