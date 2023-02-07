@@ -14,7 +14,7 @@ from typing import Generator, Optional
 
 import grpc
 
-from ansys.api.utilities.filetransfer.v1 import (
+from ansys.api.tools.filetransfer.v1 import (
     file_transfer_service_pb2,
     file_transfer_service_pb2_grpc,
 )

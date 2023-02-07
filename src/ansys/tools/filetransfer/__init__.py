@@ -1,8 +1,4 @@
-"""
-utilities.
-
-filetransfer
-"""
+"""Client library for the Ansys file transfer tool."""
 
 try:
     import importlib.metadata as importlib_metadata  # type: ignore

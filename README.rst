@@ -7,19 +7,19 @@ Filetransfer Utility Python Client
    :alt: PyAnsys
 
 .. |python| image:: https://img.shields.io/badge/Python-%3E%3D3.7-blue
-   :target: https://pypi.org/project/ansys-utilities-filetransfer/
+   :target: https://pypi.org/project/ansys-tools-filetransfer/
    :alt: Python
 
-.. |pypi| image:: https://img.shields.io/pypi/v/ansys-utilities-filetransfer.svg?logo=python&logoColor=white
-   :target: https://pypi.org/project/ansys-utilities-filetransfer
+.. |pypi| image:: https://img.shields.io/pypi/v/ansys-tools-filetransfer.svg?logo=python&logoColor=white
+   :target: https://pypi.org/project/ansys-tools-filetransfer
    :alt: PyPI
 
-.. |codecov| image:: https://codecov.io/gh/pyansys/ansys-utilities-filetransfer/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/pyansys/ansys-utilities-filetransfer
+.. |codecov| image:: https://codecov.io/gh/pyansys/ansys-tools-filetransfer/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/pyansys/ansys-tools-filetransfer
    :alt: Codecov
 
-.. |GH-CI| image:: https://github.com/pyansys/ansys-utilities-filetransfer/actions/workflows/ci.yml/badge.svg
-   :target: https://github.com/pyansys/ansys-utilities-filetransfer/actions/workflows/ci.yml
+.. |GH-CI| image:: https://github.com/pyansys/ansys-tools-filetransfer/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/pyansys/ansys-tools-filetransfer/actions/workflows/ci.yml
    :alt: GH-CI
 
 .. |MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
@@ -47,7 +47,7 @@ the following command in the Python (virtual) environment of your choice:
 
 .. code:: bash
 
-    python -m pip install ansys-utilities-filetransfer
+    python -m pip install ansys-tools-filetransfer
 
 For developers
 ^^^^^^^^^^^^^^
@@ -62,8 +62,8 @@ need to follow these steps:
 
     .. code:: bash
 
-        git clone https://github.com/pyansys/ansys-utilities-filetransfer
-        cd ansys-utilities-filetransfer
+        git clone https://github.com/pyansys/ansys-tools-filetransfer
+        cd ansys-tools-filetransfer
 
 2. Make sure you have the latest version of poetry:
 

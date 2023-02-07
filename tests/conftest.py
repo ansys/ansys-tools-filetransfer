@@ -30,7 +30,7 @@ def pytest_addoption(parser):
         DOCKER_IMAGENAME_OPTION_KEY,
         action="store",
         help=("Docker image to be used for running the test."),
-        default="ghcr.io/ansys/utilities-filetransfer-minimal:latest",
+        default="ghcr.io/ansys/tools-filetransfer-minimal:latest",
     )
 
 
