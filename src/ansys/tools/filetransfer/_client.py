@@ -142,9 +142,9 @@ class Client:
         n_bytes_received = 0
 
         # download iterator
-        def download_file_iterator() -> Generator[
-            file_transfer_service_pb2.DownloadFileRequest, None, None
-        ]:
+        def download_file_iterator() -> (
+            Generator[file_transfer_service_pb2.DownloadFileRequest, None, None]
+        ):
             # 1) send info
             yield file_transfer_service_pb2.DownloadFileRequest(
                 initialize=file_transfer_service_pb2.DownloadFileRequest.Initialize(
@@ -212,9 +212,9 @@ class Client:
         sha1sum = _get_file_hash(local_filename, "sha1")
 
         # upload iterator
-        def upload_file_iterator() -> Generator[
-            file_transfer_service_pb2.UploadFileRequest, None, None
-        ]:
+        def upload_file_iterator() -> (
+            Generator[file_transfer_service_pb2.UploadFileRequest, None, None]
+        ):
             # 1) send info
             yield file_transfer_service_pb2.UploadFileRequest(
                 initialize=file_transfer_service_pb2.UploadFileRequest.Initialize(
