@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: "3.8"
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Test with tox
@@ -70,7 +70,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: "3.8"
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Generate the documentation with tox
@@ -97,7 +97,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: "3.8"
       - name: Install dependencies and build the library
         run: |
           git config --global url."https://${{ secrets.PYANSYS_CI_BOT_TOKEN }}@github.com/ansys/ansys-api-tools-filetransfer".insteadOf "https://github.com/ansys/ansys-api-tools-filetransfer"
