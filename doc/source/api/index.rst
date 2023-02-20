@@ -1,7 +1,7 @@
 API Reference
 =============
 
-.. currentmodule:: ansys.utilities.filetransfer
+.. currentmodule:: ansys.tools.filetransfer
 
 .. toctree::
    :maxdepth: 2

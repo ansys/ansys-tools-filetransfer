@@ -3,10 +3,10 @@ from datetime import datetime
 
 from pyansys_sphinx_theme import pyansys_logo_black
 
-from ansys.utilities.filetransfer import __version__
+from ansys.tools.filetransfer import __version__
 
 # Project information
-project = "ansys-utilities-filetransfer"
+project = "ansys-tools-filetransfer"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "ANSYS, Inc."
 release = version = __version__
@@ -19,7 +19,7 @@ html_title = html_short_title = "Filetransfer Utility Python Client"
 
 # specify the location of your github repo
 html_theme_options = {
-    "github_url": "https://github.com/pyansys/ansys-utilities-filetransfer",
+    "github_url": "https://github.com/pyansys/ansys-tools-filetransfer",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [

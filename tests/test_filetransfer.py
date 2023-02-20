@@ -3,7 +3,7 @@ import secrets
 
 import pytest
 
-from ansys.utilities.filetransfer import Client
+from ansys.tools.filetransfer import Client
 
 
 def get_sizes():
