@@ -14,12 +14,12 @@ Filetransfer Utility Python Client
    :target: https://pypi.org/project/ansys-tools-filetransfer
    :alt: PyPI
 
-.. |codecov| image:: https://codecov.io/gh/pyansys/ansys-tools-filetransfer/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/pyansys/ansys-tools-filetransfer
+.. |codecov| image:: https://codecov.io/gh/ansys-internal/ansys-tools-filetransfer/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ansys-internal/ansys-tools-filetransfer
    :alt: Codecov
 
-.. |GH-CI| image:: https://github.com/pyansys/ansys-tools-filetransfer/actions/workflows/ci.yml/badge.svg
-   :target: https://github.com/pyansys/ansys-tools-filetransfer/actions/workflows/ci.yml
+.. |GH-CI| image:: https://github.com/ansys-internal/ansys-tools-filetransfer/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/ansys-internal/ansys-tools-filetransfer/actions/workflows/ci.yml
    :alt: GH-CI
 
 .. |MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
@@ -62,7 +62,7 @@ need to follow these steps:
 
     .. code:: bash
 
-        git clone https://github.com/pyansys/ansys-tools-filetransfer
+        git clone https://github.com/ansys-internal/ansys-tools-filetransfer
         cd ansys-tools-filetransfer
 
 2. Make sure you have the latest version of poetry:
