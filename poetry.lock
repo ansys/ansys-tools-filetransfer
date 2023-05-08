@@ -1761,4 +1761,4 @@ tests = ["grpcio-health-checking", "pytest", "pytest-cov", "tox"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<4.0"
-content-hash = "e740fe879979799972a1a6085b183f79988ef1a98d724902305a45125e7a1d67"
+content-hash = "42a7d5b2f93494703ca1162320bed523a43668be7561dc696c5bc8eb93bd59fd"

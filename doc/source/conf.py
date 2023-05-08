@@ -1,7 +1,7 @@
 """Sphinx documentation configuration file."""
 from datetime import datetime
 
-from ansys_sphinx_theme import pyansys_logo_black
+from ansys_sphinx_theme import ansys_favicon, pyansys_logo_black
 
 from ansys.tools.filetransfer import __version__
 
@@ -48,6 +48,10 @@ intersphinx_mapping = {
     # "grpc": ("https://grpc.github.io/grpc/python/", None),
 }
 
+# sphinx_autodoc_typehints configuration
+typehints_defaults = "comma"
+simplify_optional_unions = False
+
 # numpydoc configuration
 numpydoc_show_class_members = False
 numpydoc_xref_param_type = True
@@ -70,6 +74,8 @@ numpydoc_validation_checks = {
     # type, unless multiple values are being returned"
 }
 
+# Favicon
+html_favicon = ansys_favicon
 
 # static path
 html_static_path = ["_static"]
