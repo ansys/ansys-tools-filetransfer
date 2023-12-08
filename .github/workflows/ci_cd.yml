@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Test with tox
@@ -35,7 +35,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.9', '3.10', '3.11', '3.12']
       fail-fast: false
 
     steps:
@@ -72,7 +72,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Generate the documentation with tox
@@ -100,7 +100,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies and build the library
         run: |
           python -m pip install --upgrade pip poetry
