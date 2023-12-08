@@ -1,12 +1,9 @@
 """Client library for the Ansys file transfer tool."""
 
-try:
-    import importlib.metadata as importlib_metadata  # type: ignore
-except ModuleNotFoundError:
-    import importlib_metadata  # type: ignore
+import importlib.metadata
 
 from ._client import Client
 
 __all__ = ["Client"]
 
-__version__ = importlib_metadata.version(__name__.replace(".", "-"))
+__version__ = importlib.metadata.version(__name__.replace(".", "-"))

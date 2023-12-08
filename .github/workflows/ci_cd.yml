@@ -18,12 +18,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Test with tox
         run: |
-          git config --global url."https://${{ secrets.FILETRANSFER_API_REPOSITORY_TOKEN }}@github.com/ansys-internal/ansys-api-tools-filetransfer".insteadOf "https://github.com/ansys-internal/ansys-api-tools-filetransfer"
+          poetry source add pyansys_private_pypi https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+          poetry config http-basic.pyansys_private_pypi TOKEN ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
           tox -e style
 
 
@@ -34,7 +35,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.9', '3.10', '3.11', '3.12']
       fail-fast: false
 
     steps:
@@ -57,7 +58,8 @@ jobs:
       - name: Test with tox
         # Only the tox environment specified in the tox.ini gh-actions is run
         run: |
-          git config --global url."https://${{ secrets.FILETRANSFER_API_REPOSITORY_TOKEN }}@github.com/ansys-internal/ansys-api-tools-filetransfer".insteadOf "https://github.com/ansys-internal/ansys-api-tools-filetransfer"
+          poetry source add pyansys_private_pypi https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+          poetry config http-basic.pyansys_private_pypi TOKEN ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
           tox
 
 
@@ -70,12 +72,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies
         run: python -m pip install --upgrade pip poetry tox
       - name: Generate the documentation with tox
         run: |
-          git config --global url."https://${{ secrets.FILETRANSFER_API_REPOSITORY_TOKEN }}@github.com/ansys-internal/ansys-api-tools-filetransfer".insteadOf "https://github.com/ansys-internal/ansys-api-tools-filetransfer"
+          poetry source add pyansys_private_pypi https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+          poetry config http-basic.pyansys_private_pypi TOKEN ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
           tox -e doc
           touch .tox/doc_out/.nojekyll
           echo "filetransfer-utility.docs.pyansys.com" > .tox/doc_out/CNAME
@@ -97,11 +100,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
       - name: Install dependencies and build the library
         run: |
-          git config --global url."https://${{ secrets.FILETRANSFER_API_REPOSITORY_TOKEN }}@github.com/ansys-internal/ansys-api-tools-filetransfer".insteadOf "https://github.com/ansys-internal/ansys-api-tools-filetransfer"
           python -m pip install --upgrade pip poetry
+          poetry source add pyansys_private_pypi https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+          poetry config http-basic.pyansys_private_pypi TOKEN ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
           poetry install -E build
           poetry build
           poetry run twine check dist/*
