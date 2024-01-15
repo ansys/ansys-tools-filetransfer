@@ -1,5 +1,7 @@
-Filetransfer Utility Python Client
-==================================
+*******************************
+Filetransfer Tool Python Client
+*******************************
+
 |pyansys| |python| |pypi| |GH-CI| |codecov| |MIT| |black|
 
 .. |pyansys| image:: https://img.shields.io/badge/Py-Ansys-ffc107.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABDklEQVQ4jWNgoDfg5mD8vE7q/3bpVyskbW0sMRUwofHD7Dh5OBkZGBgW7/3W2tZpa2tLQEOyOzeEsfumlK2tbVpaGj4N6jIs1lpsDAwMJ278sveMY2BgCA0NFRISwqkhyQ1q/Nyd3zg4OBgYGNjZ2ePi4rB5loGBhZnhxTLJ/9ulv26Q4uVk1NXV/f///////69du4Zdg78lx//t0v+3S88rFISInD59GqIH2esIJ8G9O2/XVwhjzpw5EAam1xkkBJn/bJX+v1365hxxuCAfH9+3b9/+////48cPuNehNsS7cDEzMTAwMMzb+Q2u4dOnT2vWrMHu9ZtzxP9vl/69RVpCkBlZ3N7enoDXBwEAAA+YYitOilMVAAAAAElFTkSuQmCC
@@ -31,142 +33,150 @@ Filetransfer Utility Python Client
    :alt: Black
 
 
-A Python client for the Ansys filetransfer utility
+The Ansys filetransfer tool provides a simple gRPC API for moving files between
+a client and a server. Its target use case are local Docker deployments, or
+simple remote deployments.
 
+The tool is composed of two parts:
 
-How to install
---------------
+- A Python client, which is contained in this repository.
+- A C++ server, which is contained in the `ansys-tools-filetransfer-server` repository.
 
-At least two installation modes are provided: user and developer.
+**WARNING**:
 
-For users
-^^^^^^^^^
+The filetransfer tool does not provide any security measures. Any file
+on the server component can be accessed by any client. Without additional security
+measures, it is unsuited for use over an untrusted network.
 
-In order to install the Filetransfer Utility Python Client, you can execute
-the following command in the Python (virtual) environment of your choice:
+For usage instructions, please refer to the `documentation`_.
 
-.. code:: bash
+.. START_MARKER_FOR_SPHINX_DOCS
 
-    python -m pip install ansys-tools-filetransfer
+----------
+Contribute
+----------
 
-For developers
-^^^^^^^^^^^^^^
+Install in development mode
+===========================
 
-Installing the Filetransfer Utility Python Client in developer mode allows
-you to modify the source and enhance it.
+Installing the Filetransfer Tool Python Client in development mode allows you
+to modify the source and enhance it.
 
-Before contributing to the project, please refer to the `PyAnsys Developer's guide`_. You will
-need to follow these steps:
+Before contributing to the project, ensure that you are thoroughly familiar with
+the `PyAnsys Developer's guide`_.
 
-1. Start by cloning this repository, and entering the newly created directory:
+#.  Clone the repository and enter the newly created directory:
 
     .. code:: bash
 
         git clone https://github.com/ansys-internal/ansys-tools-filetransfer
         cd ansys-tools-filetransfer
 
-2. Make sure you have the latest version of poetry:
+#.  Install dependencies
 
     .. code:: bash
 
         python -m pip install pipx
         pipx ensurepath
         pipx install poetry
+        pipx install pip
+        pipx install tox
 
-3. Install the project and its development dependencies using poetry. This also takes care of
-   creating a new virtual environment:
+    The project uses `Poetry <https://python-poetry.org>`_
+    to manage the development environment.
+
+#.  Create a virtual environment and install the package with the
+    development dependencies:
 
     .. code:: bash
 
-        poetry install -E doc -E tests -E build -E style
+        poetry install --all-extras
 
-4. Activate your development virtual environment with:
+
+#.  Activate the virtual environment:
 
     .. code:: bash
 
         poetry shell
 
-5. Verify your development installation by running:
+Test
+====
+
+The tests for the Filetransfer Tool Python Client can be run either with
+a local executable of the server, or with a Docker container.
+
+Unless you are developing the server, it is recommended to use the Docker
+container.
+
+#.  Pull the Docker image:
 
     .. code:: bash
 
-        tox
+        docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
 
-How to testing
---------------
+#.  Run the tests with ``tox`` (for example, for Python 3.10):
 
-This project takes advantage of `tox`_. This tool allows to automate common
-development tasks (similar to Makefile) but it is oriented towards Python
-development.
+    .. code:: bash
 
-Using tox
-^^^^^^^^^
+        tox -e py310
 
-As Makefile has rules, `tox`_ has environments. In fact, the tool creates its
-own virtual environment so anything being tested is isolated from the project in
-order to guarantee project's integrity. The following environments commands are provided:
-
-- **tox -e style**: will check for coding style quality.
-- **tox -e py-pytest**: checks for unit tests.
-- **tox -e py-pytest-coverage**: checks for unit testing and code coverage.
-- **tox -e doc**: checks for documentation building process.
-
-
-Raw testing
-^^^^^^^^^^^
-
-If required, you can always call the style commands (`black`_, `isort`_,
-`flake8`_...) or unit testing ones (`pytest`_) from the command line. However,
-this does not guarantee that your project is being tested in an isolated
-environment, which is the reason why tools like `tox`_ exist.
-
-
-A note on pre-commit
-^^^^^^^^^^^^^^^^^^^^
-
-The style checks take advantage of `pre-commit`_. Developers are not forced but
-encouraged to install this tool as a git hook via:
+Alternatively, you can run the tests directly via ``pytest``. Ensure that the
+development virtual environment is activated:
 
 .. code:: bash
 
-    poetry install -E style && pre-commit install
+    poetry shell
 
-
-Documentation
--------------
-
-For building documentation, you can either run the usual rules provided in the
-`Sphinx`_ Makefile, such us:
+Then, run the tests:
 
 .. code:: bash
 
-    make -C doc/ html && your_browser_name doc/html/index.html
+    pytest
 
-However, the recommended way of checking documentation integrity is using:
-
-.. code:: bash
-
-    tox -e doc && your_browser_name .tox/doc_out/index.html
-
-
-Distributing
-------------
-
-If you would like to create either source or wheel files, start by installing
-the building requirements:
+Running the tests directly via ``pytest`` also allows you to pass additional
+arguments. For example, to run the tests with a local executable of the server:
 
 .. code:: bash
 
-    poetry install -E build
+    pytest --server-bin /path/to/server/executable
 
-Then, you can execute:
+Or, to run the tests with a different server Docker image:
 
 .. code:: bash
 
-    poetry build
-    python -m twine check dist/*
+    pytest --server-image <image_name>
+
+
+Build documentation
+===================
+
+The documentation can be built with ``tox``:
+
+.. code:: bash
+
+    tox -e doc
+
+The resulting files will be in ``doc/_build/html``.
+
+Run style checks
+================
+
+The style checks use `pre-commit`_ and can be run through `tox`_:
+
+.. code:: bash
+
+    tox -e style
+
+
+The style checks can also be configured to run automatically before each ``git commit``:
+
+.. code:: bash
+
+    pre-commit install
+
 
 .. LINKS AND REFERENCES
+.. _documentation: https://filetransfer.tools.docs.pyansys.com
 .. _black: https://github.com/psf/black
 .. _flake8: https://flake8.pycqa.org/en/latest/
 .. _isort: https://github.com/PyCQA/isort
