@@ -38,13 +38,15 @@ a client and a server. Its target use case are local Docker deployments, or
 simple remote deployments.
 
 The tool is composed of two parts:
+
 - A Python client, which is contained in this repository.
 - A C++ server, which is contained in the `ansys-tools-filetransfer-server` repository.
 
-.. warning::
-    The filetransfer tool does not provide any security measures. Any file
-    on the server component can be accessed by any client. Without additional security
-    measures, it is unsuited for use over an untrusted network.
+**WARNING**:
+
+The filetransfer tool does not provide any security measures. Any file
+on the server component can be accessed by any client. Without additional security
+measures, it is unsuited for use over an untrusted network.
 
 For usage instructions, please refer to the `documentation`_.
 
