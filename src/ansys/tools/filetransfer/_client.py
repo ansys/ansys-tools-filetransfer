@@ -21,10 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""A high-level Python Client for the Ansys Filetransfer utility.
+"""A high-level Python Client for the Ansys Filetransfer tool.
 
 This module implements a high-level Python client for interacting with
-the Ansys filetransfer utility via gRPC.
+the Ansys filetransfer tool via gRPC.
 """
 import hashlib
 import os
@@ -42,7 +42,7 @@ from ._log import LOGGER
 
 
 class Client:
-    """Ansys Filetransfer Utility high-level client module.
+    """Ansys Filetransfer Tool high-level client module.
 
     The filetransfer client provides a high-level API for uploading and
     downloading files to the filetransfer server.

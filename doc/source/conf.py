@@ -17,7 +17,7 @@ cname = os.getenv("DOCUMENTATION_CNAME", "filetransfer.tools.docs.pyansys.com")
 html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 
-html_title = html_short_title = "Filetransfer Utility Python Client"
+html_title = html_short_title = "Filetransfer Tool Python Client"
 
 # specify the location of your github repo
 html_theme_options = {
