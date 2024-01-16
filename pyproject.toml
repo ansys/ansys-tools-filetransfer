@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 # Check https://python-poetry.org/docs/pyproject/ for all available sections
 name = "ansys-tools-filetransfer"
 version = "0.1.dev0"
-description = "A python client for the ansys filetransfer utility"
+description = "A Python client for the ansys filetransfer tool"
 license = "MIT"
 authors = ["ANSYS, Inc. <ansys.support@ansys.com>"]
 maintainers = ["PyAnsys developers <pyansys.maintainers@ansys.com>"]
