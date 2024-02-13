@@ -25,7 +25,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 grpcio = "^1.17"
-ansys-api-tools-filetransfer = { version="^0.1.dev0", source = "pyansys_private_pypi" }
+ansys-api-tools-filetransfer = "^0.1.0"
 
 pytest = {version = ">=7.1.0", optional = true}
 pytest-cov = {version = ">=3.0.0", optional = true}
