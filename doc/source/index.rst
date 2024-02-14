@@ -2,7 +2,6 @@
    :hidden:
    :maxdepth: 3
 
-   self
    usage
    api/index
    contribute
@@ -17,7 +16,7 @@ simple remote deployments.
 The tool is composed of two parts:
 
 - A Python client (the component described here).
-- A C++ server, see the `ansys-tools-filetransfer-server repository <https://github.com/ansys-internal/ansys-tools-filetransfer-server>`_.
+- A C++ server, see `the Filetransfer Tool Server documentation <https://filetransfer-server.tools.docs.pyansys.com>`_.
 
 .. warning::
 
