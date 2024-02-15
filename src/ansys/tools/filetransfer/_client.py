@@ -24,7 +24,7 @@
 """A high-level Python Client for the Ansys Filetransfer tool.
 
 This module implements a high-level Python client for interacting with
-the Ansys filetransfer tool via gRPC.
+the Ansys Filetransfer Tool Server via gRPC.
 """
 import hashlib
 import os
