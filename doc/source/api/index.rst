@@ -1,4 +1,4 @@
-API Reference
+API reference
 =============
 
 This section describes Filetransfer Tool API endpoints so that you can
