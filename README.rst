@@ -1,6 +1,5 @@
-*******************************
 Filetransfer Tool Python Client
-*******************************
+===============================
 
 |pyansys| |python| |pypi| |GH-CI| |codecov| |MIT| |black|
 
@@ -48,140 +47,28 @@ The filetransfer tool does not provide any security measures. Any file
 on the server component can be accessed by any client. Without additional security
 measures, it is unsuited for use over an untrusted network.
 
-For usage instructions, please refer to the `documentation`_.
 
-.. START_MARKER_FOR_SPHINX_DOCS
+Documentation and issues
+-------------------------
 
-----------
-Contribute
-----------
-
-Install in development mode
-===========================
-
-Installing the Filetransfer Tool Python Client in development mode allows you
-to modify the source and enhance it.
-
-Before contributing to the project, ensure that you are thoroughly familiar with
-the `PyAnsys Developer's guide`_.
-
-#.  Clone the repository and enter the newly created directory:
-
-    .. code:: bash
-
-        git clone https://github.com/ansys-internal/ansys-tools-filetransfer
-        cd ansys-tools-filetransfer
-
-#.  Install dependencies
-
-    .. code:: bash
-
-        python -m pip install pipx
-        pipx ensurepath
-        pipx install poetry
-        pipx install pip
-        pipx install tox
-
-    The project uses `Poetry <https://python-poetry.org>`_
-    to manage the development environment.
-
-#.  Create a virtual environment and install the package with the
-    development dependencies:
-
-    .. code:: bash
-
-        poetry install --all-extras
+Documentation for the latest stable release of the Filetransfer Tool Client is hosted at
+`Filetransfer Tool documentation <https://filetransfer.tools.docs.pyansys.com>`_.
 
 
-#.  Activate the virtual environment:
+The Filetransfer Tool documentation contains these sections:
 
-    .. code:: bash
+- `Getting started <https://filetransfer.tools.docs.pyansys.com/version/dev/usage.html>`_:
+  Explains how to install the Filetransfer Tool in user mode and then how
+  to use it from a Python script.
+- `API reference <https://filetransfer.tools.docs.pyansys.com/version/dev/api/index.html>`_:
+  Describes Filetransfer Tool API endpoints so that you can understand how to interact with
+  them programmatically.
+- `Contribute <https://filetransfer.tools.docs.pyansys.com/version/dev/contribute.html>`_:
+  Provides information on how to install the Filetransfer Tool in developer mode and make contributions
+  to the codebase and documentation.
 
-        poetry shell
+On the `Filetransfer Tool Issues <https://github.com/ansys-internal/ansys-tools-filetransfer/issues>`_
+page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
+page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 
-Test
-====
-
-The tests for the Filetransfer Tool Python Client can be run either with
-a local executable of the server, or with a Docker container.
-
-Unless you are developing the server, it is recommended to use the Docker
-container.
-
-#.  Pull the Docker image:
-
-    .. code:: bash
-
-        docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
-
-#.  Run the tests with ``tox`` (for example, for Python 3.10):
-
-    .. code:: bash
-
-        tox -e py310
-
-Alternatively, you can run the tests directly via ``pytest``. Ensure that the
-development virtual environment is activated:
-
-.. code:: bash
-
-    poetry shell
-
-Then, run the tests:
-
-.. code:: bash
-
-    pytest
-
-Running the tests directly via ``pytest`` also allows you to pass additional
-arguments. For example, to run the tests with a local executable of the server:
-
-.. code:: bash
-
-    pytest --server-bin /path/to/server/executable
-
-Or, to run the tests with a different server Docker image:
-
-.. code:: bash
-
-    pytest --server-image <image_name>
-
-
-Build documentation
-===================
-
-The documentation can be built with ``tox``:
-
-.. code:: bash
-
-    tox -e doc
-
-The resulting files will be in ``doc/_build/html``.
-
-Run style checks
-================
-
-The style checks use `pre-commit`_ and can be run through `tox`_:
-
-.. code:: bash
-
-    tox -e style
-
-
-The style checks can also be configured to run automatically before each ``git commit``:
-
-.. code:: bash
-
-    pre-commit install
-
-
-.. LINKS AND REFERENCES
-.. _documentation: https://filetransfer.tools.docs.pyansys.com
-.. _black: https://github.com/psf/black
-.. _flake8: https://flake8.pycqa.org/en/latest/
-.. _isort: https://github.com/PyCQA/isort
-.. _PyAnsys Developer's guide: https://dev.docs.pyansys.com/
-.. _pre-commit: https://pre-commit.com/
-.. _pytest: https://docs.pytest.org/en/stable/
-.. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _tox: https://tox.wiki/
+To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.

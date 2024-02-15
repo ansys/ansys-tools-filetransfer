@@ -1,8 +1,8 @@
 Getting started
----------------
+===============
 
 Installation
-^^^^^^^^^^^^
+------------
 
 Install the latest version of the package from PyPI:
 
@@ -14,7 +14,7 @@ You should use a `virtual environment <https://docs.python.org/3/library/venv.ht
 because it keeps Python packages isolated from your system Python.
 
 Usage
-^^^^^
+-----
 
 To get started, import the package:
 

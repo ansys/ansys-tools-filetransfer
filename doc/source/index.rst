@@ -7,7 +7,7 @@
    contribute
 
 Filetransfer Tool Python Client
--------------------------------
+===============================
 
 The Ansys filetransfer tool provides a simple gRPC API for moving files between
 a client and a server. Its target use case are local Docker deployments, or
@@ -27,20 +27,23 @@ The tool is composed of two parts:
 .. grid:: 1 1 2 2
     :gutter: 2
 
-    .. grid-item-card:: :octicon:`rocket` Installation and usage
+    .. grid-item-card:: Getting started :fa:`person-running`
         :link: usage
         :link-type: doc
 
-        Contains installation instructions and usage instructions.
+        Explains how to install the Filetransfer Tool in user mode and then how
+        to use it from a Python script.
 
-    .. grid-item-card:: :octicon:`file-code` API reference
+    .. grid-item-card:: API reference :fa:`book-bookmark`
         :link: api/index
         :link-type: doc
 
-        Describes the public Python classes, methods, and functions.
+        Describes Filetransfer Tool API endpoints so that you can understand how to interact with
+        them programmatically.
 
-    .. grid-item-card:: :octicon:`code` Contribute
+    .. grid-item-card:: Contribute :fa:`people-group`
         :link: contribute
         :link-type: doc
 
-        Provides developer installation and usage information.
+        Provides information on how to install the Filetransfer Tool in developer mode and make contributions
+        to the codebase and documentation.
