@@ -33,7 +33,7 @@ Filetransfer Tool Python Client
    :alt: Black
 
 
-The Ansys filetransfer tool provides a simple gRPC API for moving files between
+The Ansys Filetransfer Tool provides a simple gRPC API for moving files between
 a client and a server. Its target use case are local Docker deployments, or
 simple remote deployments.
 
@@ -44,7 +44,7 @@ The tool is composed of two parts:
 
 **WARNING**:
 
-The filetransfer tool does not provide any security measures. Any file
+The Filetransfer Tool does not provide any security measures. Any file
 on the server component can be accessed by any client. Without additional security
 measures, it is unsuited for use over an untrusted network.
 
