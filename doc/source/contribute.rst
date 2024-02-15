@@ -106,7 +106,8 @@ The documentation can be built with ``tox``:
 
     tox -e doc
 
-The resulting files will be in ``doc/_build/html``.
+The resulting files are located in the ``doc/_build/html`` directory.
+
 
 Run style checks
 ----------------
