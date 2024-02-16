@@ -6,7 +6,8 @@
 
 ## Individual Contributors
 
-* [Udo Tremel](https://github.com/ansutremel)
+* [Alex Kaszynski](https://github.com/akaszynski)
 * [Dominik Gresch](https://github.com/greschd)
 * [Jorge Martínez](https://github.com/jorgepiloto)
-* [Alex Kaszynski](https://github.com/akaszynski)
+* [Roberto Pastor Muela](https://github.com/RobPasMue)
+* [Udo Tremel](https://github.com/ansutremel)

@@ -212,11 +212,11 @@ class Client:
 
         Parameters
         ----------
-        local_filename : :obj:`string`
+        local_filename :
             The name of the local file to be uploaded.
-        remote_filename : :obj:`string`
+        remote_filename :
             The name of the remote file to be created.
-        chunk_size : :obj:`int`
+        chunk_size :
             The max. size of a chunk of data to be transferred per request (default 64K).
 
         Raises
@@ -272,14 +272,14 @@ def _get_file_hash(filename: str, algorithm: str = "md5") -> str:
 
     Parameters
     ----------
-    filename : :obj:`string`
+    filename :
         The name of the file to be processed.
-    algorithm : :obj:`string`, optional
+    algorithm :
         The hash algorithm to be used (default md5).
 
     Returns
     -------
-    obj:`list`
+    :
         The hash of the file.
     """
     method = hashlib.new(algorithm)
