@@ -16,7 +16,7 @@ because it keeps Python packages isolated from your system Python.
 Usage
 -----
 
-To begin using the FileTransfer Tool, import the package with this comand:
+To begin using the FileTransfer Tool, import the package with this command:
 
 .. code-block:: python
 

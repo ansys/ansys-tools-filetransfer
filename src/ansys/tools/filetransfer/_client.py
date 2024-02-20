@@ -21,10 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""A high-level Python Client for the Ansys Filetransfer tool.
+"""The high-level Python client for the FileTransfer Tool.
 
-This module implements a high-level Python client for interacting with
-the Ansys Filetransfer Tool Server via gRPC.
+This module implements the high-level Python client for interacting with
+the Ansys FileTransfer Tool Server via gRPC.
 """
 from collections.abc import Generator
 import hashlib
@@ -43,10 +43,10 @@ from ._log import LOGGER
 
 
 class Client:
-    """Ansys Filetransfer Tool high-level client module.
+    """Provides the high-level Python client for the FileTransfer Tool.
 
-    The filetransfer client provides a high-level API for uploading and
-    downloading files to the filetransfer server.
+    You use this client's high-level API to upload and download files to
+    the FileTransfer Tool Server.
     """
 
     def __init__(self, channel: grpc.Channel, max_message_length: Optional[int] = None):
@@ -55,20 +55,20 @@ class Client:
         Parameters
         ----------
         channel :
-            The gRPC channel on which the client communicates with the
+            gRPC channel on which the client communicates with the
             server.
         max_message_length :
-            The maximum message size which is configured on the given
+            Maximum message size that is configured on the given
             channel. Note that this does **not** change the channel
-            configuration. The parameter is used to check that the
-            ``chunk_size`` used for up- and download fits within the
-            ``max_message_length``, with some slack.
+            configuration. This parameter is used to check that the
+            ``chunk_size`` parameter used for upload and download fits
+            within the maximum message length, with some slack.
         """
         self._channel = channel
         if max_message_length is None:
             # Set the max_message_length to 4GB if it is not set.
-            # This is the technical limit, see
-            # https://groups.google.com/g/google-cloud-endpoints/c/sYT4BopjohI
+            # This is the technical limit. For more information, see
+            # https://groups.google.com/g/google-cloud-endpoints/c/sYT4BopjohI.
             self._max_message_length = 1 << 32
         else:
             self._max_message_length = max_message_length
@@ -87,18 +87,18 @@ class Client:
 
         Parameters
         ----------
-        server_address :
-            The IPv4/IPv6 address and port of the server to connect to, e.g. `10.0.0.42:12345`
-        max_message_length :
-            Maximum length of messages sent over the channel, in bytes.
+        server_address : str
+            IPv4/IPv6 address and port of the server to connect to. For example, ``10.0.0.42:12345``.
+        max_message_length : int, default: 131072
+            Maximum message length in bytes to send over the channel.
 
         Returns
         -------
         :
-            The instantiated Filetransfer Client.
+            Instantiated FileTransfer client.
         """
         if not server_address:
-            raise ValueError("Empty server address given.")
+            raise ValueError("No server address was given.")
 
         channel = grpc.insecure_channel(
             server_address,
@@ -137,23 +137,22 @@ class Client:
 
         Parameters
         ----------
-        remote_filename :
-            The name of the remote file to be downloaded.
-        local_filename :
-            The name of the local file to be created.
-        chunk_size :
-            The max. size of a chunk of data to be transferred per request (default 64K).
-        compute_sha1_checksum :
-            Flag whether to compute the SHA1-checksum of the file to be downloaded on the
-            server-side or not (default True).
+        remote_filename : str
+            Name of the remote file to download.
+        local_filename : str
+            Name of the local file to create.
+        chunk_size : int, default: 65536
+            Maximum size in bytes of a chunk of data to transfer per request.
+        compute_sha1_checksum : bool, default: True
+            Whether to compute the SHA1-checksum of the file to be downloaded on the
+            server-side.
 
         Raises
         ------
         RuntimeError :
-            Raises a RuntimeError in case of a response indicating an error on the server-side.
+            If a response indicates an error on the server-side.
         ValueError :
-            Raises a ValueError in case the checksums between the downloaded and remote
-            file do not match.
+            If the checksums between the downloaded file and remote file do not match.
 
         """
         self._check_chunk_size(chunk_size)
@@ -201,7 +200,7 @@ class Client:
             hexdigest = _get_file_hash(local_filename, "sha1")
             if hexdigest != sha1sum:
                 raise ValueError(
-                    "Checksum mismatch (%s != %s) between local and remote file, download failed!"
+                    "Checksum mismatch (%s != %s) exists between local and remote files. Download failed."
                     % (hexdigest, sha1sum)
                 )
 
@@ -212,17 +211,17 @@ class Client:
 
         Parameters
         ----------
-        local_filename :
-            The name of the local file to be uploaded.
-        remote_filename :
-            The name of the remote file to be created.
-        chunk_size :
-            The max. size of a chunk of data to be transferred per request (default 64K).
+        local_filename : str
+           Name of the local file to upload.
+        remote_filename : str
+            Name of the remote file to create.
+        chunk_size : int, default: 65536
+            Maximum size in bytes of a chunk of data to transfer per request.
 
         Raises
         ------
         RuntimeError :
-            Raises a RuntimeError in case of a response indicating an error on the server-side.
+            If a response indicates an error on the server-side.
 
         """
         self._check_chunk_size(chunk_size)
@@ -273,14 +272,14 @@ def _get_file_hash(filename: str, algorithm: str = "md5") -> str:
     Parameters
     ----------
     filename :
-        The name of the file to be processed.
-    algorithm :
-        The hash algorithm to be used (default md5).
+        Name of the file to process.
+    algorithm : str, default: ``"md5"``
+        Hash algorithm to use.
 
     Returns
     -------
     :
-        The hash of the file.
+        Hash of the file.
     """
     method = hashlib.new(algorithm)
     with open(filename, "rb") as f:
