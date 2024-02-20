@@ -4,33 +4,33 @@ Getting started
 Installation
 ------------
 
-Install the latest version of the package from PyPI:
+Install the latest version of the FileTransfer Tool from PyPI with this command:
 
 .. code-block:: bash
 
     pip install ansys-tools-filetransfer
 
-You should use a `virtual environment <https://docs.python.org/3/library/venv.html>`_,
+You should use a `virtual environment <https://docs.python.org/3/library/venv.html>`_
 because it keeps Python packages isolated from your system Python.
 
 Usage
 -----
 
-To get started, import the package:
+To begin using the FileTransfer Tool, import the package with this comand:
 
 .. code-block:: python
 
     import ansys.tools.filetransfer as ft
 
-The package contains a single class, :class:`.Client`, which is used to
-communicate with the server. The class can be instantiated with the server
+The FileTransfer Tool API contains a single class, :class:`.Client`, which is used to
+communicate with the server. You instantiate this class with the server
 address and port number:
 
 .. code-block:: python
 
     client = ft.Client.from_server_address("localhost:50052")
 
-Alternatively, the class can be instantiated with a :class:`grpc.Channel`:
+Alternatively, you can instantiate the :class:`.Client` with the :class:`grpc.Channel` class:
 
 .. code-block:: python
 
@@ -38,9 +38,9 @@ Alternatively, the class can be instantiated with a :class:`grpc.Channel`:
     channel = grpc.insecure_channel("localhost:50052")
     client = ft.Client(channel)
 
-This allows you to change how the channel is created.
+The preceding code allows you to change how the channel is created.
 
-The client can be used to upload and download files:
+Following instantiation, you can use the client to upload and download files:
 
 .. code-block:: python
 
