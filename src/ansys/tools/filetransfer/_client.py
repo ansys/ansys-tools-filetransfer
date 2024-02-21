@@ -212,7 +212,7 @@ class Client:
         Parameters
         ----------
         local_filename : str
-           Name of the local file to upload.
+            Name of the local file to upload.
         remote_filename : str
             Name of the remote file to create.
         chunk_size : int, default: 65536
@@ -271,7 +271,7 @@ def _get_file_hash(filename: str, algorithm: str = "md5") -> str:
 
     Parameters
     ----------
-    filename :
+    filename : str
         Name of the file to process.
     algorithm : str, default: ``"md5"``
         Hash algorithm to use.

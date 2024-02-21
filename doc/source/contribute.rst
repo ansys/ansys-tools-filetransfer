@@ -69,7 +69,7 @@ container is recommended.
 
         tox -e py310
 
-Alternatively, you can run the tests directly via `pytest_`. Ensure that the
+Alternatively, you can run the tests directly via `pytest`_. Ensure that the
 development virtual environment is activated:
 
 .. code:: bash
