@@ -2,11 +2,8 @@ ANSYS
 Ansys
 ansys
 API
-Filetransfer
-Filetransfer Tool
-Filetransfer Tool Python Client
+FileTransfer
+FileTransfer Tool
 gRPC
-isort
 pytest
-subprocess
-API
+

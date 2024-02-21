@@ -4,16 +4,15 @@ Contribute
 Overall guidance on contributing to a PyAnsys library appears in
 `Contributing <https://dev.docs.pyansys.com/how-to/contributing.html>`_
 in the *PyAnsys developer's guide*. Ensure that you are thoroughly familiar
-with this guide before attempting to contribute to the Filetransfer Tool.
+with this guide before attempting to contribute to the FileTransfer Tool.
 
-The following contribution information is specific to the Filetransfer Tool.
+The following contribution information is specific to the FileTransfer Tool.
 
 Install in development mode
 ---------------------------
 
-Installing the Filetransfer Tool Python Client in development mode allows you
+Installing the FileTransfer Tool in development mode allows you
 to modify the source and enhance it.
-
 
 #.  Clone the repository and enter the newly created directory:
 
@@ -22,7 +21,7 @@ to modify the source and enhance it.
         git clone https://github.com/ansys-internal/ansys-tools-filetransfer
         cd ansys-tools-filetransfer
 
-#.  Install dependencies
+#.  Install dependencies:
 
     .. code:: bash
 
@@ -32,8 +31,7 @@ to modify the source and enhance it.
         pipx install pip
         pipx install tox
 
-    The project uses `Poetry <https://python-poetry.org>`_
-    to manage the development environment.
+    The project uses `Poetry`_ to manage the development environment.
 
 #.  Create a virtual environment and install the package with the
     development dependencies:
@@ -41,7 +39,6 @@ to modify the source and enhance it.
     .. code:: bash
 
         poetry install --all-extras
-
 
 #.  Activate the virtual environment:
 
@@ -52,11 +49,11 @@ to modify the source and enhance it.
 Test
 ----
 
-The tests for the Filetransfer Tool Python Client can be run either with
-a local executable of the server, or with a Docker container.
+You can run the tests for the FileTransfer Tool with either
+a local executable of the server or with a Docker container.
 
-Unless you are developing the server, it is recommended to use the Docker
-container.
+Unless you are contributing to development of the server, using a Docker
+container is recommended.
 
 #.  Pull the Docker image:
 
@@ -64,13 +61,15 @@ container.
 
         docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
 
-#.  Run the tests with ``tox`` (for example, for Python 3.10):
+#.  Run the tests with `tox`_.
+
+    For example, this command runs the test for Python 3.10:
 
     .. code:: bash
 
         tox -e py310
 
-Alternatively, you can run the tests directly via ``pytest``. Ensure that the
+Alternatively, you can run the tests directly via `pytest`_. Ensure that the
 development virtual environment is activated:
 
 .. code:: bash
@@ -84,23 +83,23 @@ Then, run the tests:
     pytest
 
 Running the tests directly via ``pytest`` also allows you to pass additional
-arguments. For example, to run the tests with a local executable of the server:
+arguments. For example, this command runs the tests with a local executable of
+the server:
 
 .. code:: bash
 
     pytest --server-bin /path/to/server/executable
 
-Or, to run the tests with a different server Docker image:
+This command runs the tests with a different Docker image of the server:
 
 .. code:: bash
 
     pytest --server-image <image_name>
 
-
 Build documentation
 -------------------
 
-The documentation can be built with ``tox``:
+You can build the documentation with this ``tox`` command:
 
 .. code:: bash
 
@@ -112,14 +111,14 @@ The resulting files are located in the ``doc/_build/html`` directory.
 Run style checks
 ----------------
 
-The style checks use `pre-commit`_ and can be run through `tox`_:
+The style checks use `pre-commit`_ and can be run using this `tox`_ command:
 
 .. code:: bash
 
     tox -e style
 
-
-The style checks can also be configured to run automatically before each ``git commit``:
+You can also configure the style checks to run automatically before each ``git commit``
+with this command:
 
 .. code:: bash
 
@@ -127,12 +126,7 @@ The style checks can also be configured to run automatically before each ``git c
 
 
 .. LINKS AND REFERENCES
-.. _documentation: https://filetransfer.tools.docs.pyansys.com
-.. _black: https://github.com/psf/black
-.. _flake8: https://flake8.pycqa.org/en/latest/
-.. _isort: https://github.com/PyCQA/isort
-.. _PyAnsys Developer's guide: https://dev.docs.pyansys.com/
-.. _pre-commit: https://pre-commit.com/
-.. _pytest: https://docs.pytest.org/en/stable/
-.. _Sphinx: https://www.sphinx-doc.org/en/master/
+.. _Poetry: https://python-poetry.org
 .. _tox: https://tox.wiki/
+.. _pytest: https://docs.pytest.org/en/stable/
+.. _pre-commit: https://pre-commit.com/

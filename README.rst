@@ -1,5 +1,5 @@
-Filetransfer Tool Python Client
-===============================
+FileTransfer Tool
+=================
 
 |pyansys| |python| |pypi| |GH-CI| |codecov| |MIT| |black|
 
@@ -32,18 +32,20 @@ Filetransfer Tool Python Client
    :alt: Black
 
 
-The Ansys Filetransfer Tool provides a simple gRPC API for moving files between
-a client and a server. Its target use case are local Docker deployments, or
+The Ansys FileTransfer Tool provides a simple gRPC API for moving files between
+a client and a server. Its target use case are local Docker deployments or
 simple remote deployments.
 
-The tool is composed of two parts:
+The Ansys FileTransfer Tool is composed of two parts:
 
 - A Python client, which is contained in this repository.
-- A C++ server, which is contained in the `ansys-tools-filetransfer-server` repository.
+- A C++ server, which is contained in the
+  `ansys-tools-filetransfer-server <https://github.com/ansys-internal/ansys-tools-filetransfer-server>`_
+  repository.
 
 **WARNING**:
 
-The Filetransfer Tool does not provide any security measures. Any file
+The FileTransfer Tool does not provide any security measures. Any file
 on the server component can be accessed by any client. Without additional security
 measures, it is unsuited for use over an untrusted network.
 
@@ -51,23 +53,22 @@ measures, it is unsuited for use over an untrusted network.
 Documentation and issues
 -------------------------
 
-Documentation for the latest stable release of the Filetransfer Tool Client is hosted at
-`Filetransfer Tool documentation <https://filetransfer.tools.docs.pyansys.com>`_.
+Documentation for the latest stable release of the FileTransfer Tool is hosted at
+`FileTransfer Tool documentation <https://filetransfer.tools.docs.pyansys.com>`_.
 
-
-The Filetransfer Tool documentation contains these sections:
+The FileTransfer Tool documentation contains these sections:
 
 - `Getting started <https://filetransfer.tools.docs.pyansys.com/version/dev/usage.html>`_:
-  Explains how to install the Filetransfer Tool in user mode and then how
+  Explains how to install the FileTransfer Tool in user mode and then how
   to use it from a Python script.
 - `API reference <https://filetransfer.tools.docs.pyansys.com/version/dev/api/index.html>`_:
-  Describes Filetransfer Tool API endpoints so that you can understand how to interact with
+  Describes FileTransfer Tool API endpoints so that you can understand how to interact with
   them programmatically.
 - `Contribute <https://filetransfer.tools.docs.pyansys.com/version/dev/contribute.html>`_:
-  Provides information on how to install the Filetransfer Tool in developer mode and make contributions
+  Provides information on how to install the FileTransfer Tool in developer mode and make contributions
   to the codebase and documentation.
 
-On the `Filetransfer Tool Issues <https://github.com/ansys-internal/ansys-tools-filetransfer/issues>`_
+On the `FileTransfer Tool Issues <https://github.com/ansys-internal/ansys-tools-filetransfer/issues>`_
 page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
 page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 
