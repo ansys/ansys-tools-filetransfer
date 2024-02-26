@@ -87,9 +87,9 @@ class Client:
 
         Parameters
         ----------
-        server_address : str
+        server_address :
             IPv4/IPv6 address and port of the server to connect to. For example, ``10.0.0.42:12345``.
-        max_message_length : int, default: 131072
+        max_message_length :
             Maximum message length in bytes to send over the channel.
 
         Returns
@@ -137,13 +137,13 @@ class Client:
 
         Parameters
         ----------
-        remote_filename : str
+        remote_filename :
             Name of the remote file to download.
-        local_filename : str
+        local_filename :
             Name of the local file to create.
-        chunk_size : int, default: 65536
+        chunk_size :
             Maximum size in bytes of a chunk of data to transfer per request.
-        compute_sha1_checksum : bool, default: True
+        compute_sha1_checksum :
             Whether to compute the SHA1-checksum of the file to be downloaded on the
             server-side.
 
@@ -211,11 +211,11 @@ class Client:
 
         Parameters
         ----------
-        local_filename : str
+        local_filename :
             Name of the local file to upload.
-        remote_filename : str
+        remote_filename :
             Name of the remote file to create.
-        chunk_size : int, default: 65536
+        chunk_size :
             Maximum size in bytes of a chunk of data to transfer per request.
 
         Raises
@@ -271,9 +271,9 @@ def _get_file_hash(filename: str, algorithm: str = "md5") -> str:
 
     Parameters
     ----------
-    filename : str
+    filename :
         Name of the file to process.
-    algorithm : str, default: ``"md5"``
+    algorithm :
         Hash algorithm to use.
 
     Returns

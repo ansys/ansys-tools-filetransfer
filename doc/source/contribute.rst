@@ -38,7 +38,7 @@ to modify the source and enhance it.
 
     .. code:: bash
 
-        poetry install --all-extras
+        poetry install
 
 #.  Activate the virtual environment:
 
