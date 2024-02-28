@@ -18,7 +18,7 @@ to modify the source and enhance it.
 
     .. code:: bash
 
-        git clone https://github.com/ansys-internal/ansys-tools-filetransfer
+        git clone https://github.com/ansys/ansys-tools-filetransfer
         cd ansys-tools-filetransfer
 
 #.  Install dependencies:
@@ -59,7 +59,7 @@ container is recommended.
 
     .. code:: bash
 
-        docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
+        docker pull ghcr.io/ansys/tools-filetransfer:latest
 
 #.  Run the tests with `tox`_.
 
