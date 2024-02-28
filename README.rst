@@ -15,12 +15,12 @@ FileTransfer Tool
    :target: https://pypi.org/project/ansys-tools-filetransfer
    :alt: PyPI
 
-.. |codecov| image:: https://codecov.io/gh/ansys-internal/ansys-tools-filetransfer/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/ansys-internal/ansys-tools-filetransfer
+.. |codecov| image:: https://codecov.io/gh/ansys/ansys-tools-filetransfer/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ansys/ansys-tools-filetransfer
    :alt: Codecov
 
-.. |GH-CI| image:: https://github.com/ansys-internal/ansys-tools-filetransfer/actions/workflows/ci.yml/badge.svg
-   :target: https://github.com/ansys-internal/ansys-tools-filetransfer/actions/workflows/ci.yml
+.. |GH-CI| image:: https://github.com/ansys/ansys-tools-filetransfer/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/ansys/ansys-tools-filetransfer/actions/workflows/ci.yml
    :alt: GH-CI
 
 .. |MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
@@ -40,7 +40,7 @@ The Ansys FileTransfer Tool is composed of two parts:
 
 - A Python client, which is contained in this repository.
 - A C++ server, which is contained in the
-  `ansys-tools-filetransfer-server <https://github.com/ansys-internal/ansys-tools-filetransfer-server>`_
+  `ansys-tools-filetransfer-server <https://github.com/ansys/ansys-tools-filetransfer-server>`_
   repository.
 
 **WARNING**:
@@ -68,7 +68,7 @@ The FileTransfer Tool documentation contains these sections:
   Provides information on how to install the FileTransfer Tool in developer mode and make contributions
   to the codebase and documentation.
 
-On the `FileTransfer Tool Issues <https://github.com/ansys-internal/ansys-tools-filetransfer/issues>`_
+On the `FileTransfer Tool Issues <https://github.com/ansys/ansys-tools-filetransfer/issues>`_
 page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
 page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 

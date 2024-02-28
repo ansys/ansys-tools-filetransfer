@@ -22,7 +22,7 @@ html_title = html_short_title = "Filetransfer Tool Python Client"
 
 # specify the location of your github repo
 html_theme_options = {
-    "github_url": "https://github.com/ansys-internal/ansys-tools-filetransfer",
+    "github_url": "https://github.com/ansys/ansys-tools-filetransfer",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [

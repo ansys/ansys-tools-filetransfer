@@ -11,7 +11,7 @@ license = "MIT"
 authors = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
 maintainers = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
 readme = "README.rst"
-repository = "https://github.com/ansys-internal/ansys-tools-filetransfer"
+repository = "https://github.com/ansys/ansys-tools-filetransfer"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3.9",
