@@ -1,9 +1,9 @@
+Ansys FileTransfer Tool
+FileTransfer Tool
+FileTransfer
 ANSYS
 Ansys
 ansys
 API
-FileTransfer
-FileTransfer Tool
-Ansys FileTransfer Tool
 gRPC
 pytest
