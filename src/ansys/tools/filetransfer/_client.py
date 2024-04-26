@@ -256,6 +256,10 @@ class Client:
                         )
                     )
                     offset += len(chunk)
+            if offset != size_of_file_in_bytes:
+                raise RuntimeError(
+                    "File transfer failed: The size of the file has changed during upload."
+                )
             # 3) finalize
             yield file_transfer_service_pb2.UploadFileRequest(
                 finalize=file_transfer_service_pb2.UploadFileRequest.Finalize()
