@@ -269,6 +269,28 @@ class Client:
         for response in self._filetransfer_stub.UploadFile(upload_file_iterator()):
             self._log_progress("upload_file", response.progress)
 
+    def delete_file(self, remote_filename: str) -> None:
+        """Delete a file on the server.
+
+        Parameters
+        ----------
+        remote_filename :
+            Name of the remote file to delete.
+
+        Raises
+        ------
+        OSError :
+            If the file does not exist, or is a directory.
+        """
+        try:
+            self._filetransfer_stub.DeleteFile(
+                file_transfer_service_pb2.DeleteFileRequest(filename=remote_filename)
+            )
+        except grpc.RpcError as e:
+            if e.code() == grpc.StatusCode.FAILED_PRECONDITION:
+                raise OSError(e.details().splitlines()[0]) from e
+            raise e
+
 
 def _get_file_hash(filename: str, algorithm: str = "md5") -> str:
     """Get the hash checksum of a file.

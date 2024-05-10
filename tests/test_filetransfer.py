@@ -94,3 +94,9 @@ def test_download(
         content_out = in_f.read()
 
     assert content_out == content
+
+
+def test_delete_inexistent(server_channel, server_tmpdir):
+    client = Client(server_channel)
+    with pytest.raises(OSError):
+        client.delete_file(str(server_tmpdir / "inexistent_file"))
