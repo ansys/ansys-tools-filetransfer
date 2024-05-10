@@ -96,6 +96,21 @@ def test_download(
     assert content_out == content
 
 
+def test_delete(server_channel, server_tmpdir, mounted_tmpdir):
+    filename = f"test_file_üñıçよð€_{secrets.token_hex(8)}"
+    remote_filename = str(server_tmpdir / filename)
+    mounted_file = mounted_tmpdir / filename
+
+    with open(mounted_file, mode="w") as out_f:
+        out_f.write("test")
+    assert mounted_file.exists()
+
+    client = Client(server_channel)
+    client.delete_file(remote_filename)
+
+    assert not mounted_file.exists()
+
+
 def test_delete_inexistent(server_channel, server_tmpdir):
     client = Client(server_channel)
     with pytest.raises(OSError):
