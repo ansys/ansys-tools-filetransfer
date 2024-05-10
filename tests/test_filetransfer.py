@@ -113,5 +113,21 @@ def test_delete(server_channel, server_tmpdir, mounted_tmpdir):
 
 def test_delete_inexistent(server_channel, server_tmpdir):
     client = Client(server_channel)
-    with pytest.raises(OSError):
+    with pytest.raises(OSError) as exc:
         client.delete_file(str(server_tmpdir / "inexistent_file"))
+    assert "does not exist" in str(exc.value)
+
+
+def test_delete_directory(server_channel, server_tmpdir, mounted_tmpdir):
+    dirname = f"test_directory_üñıçよð€_{secrets.token_hex(8)}"
+    remote_dirname = str(server_tmpdir / dirname)
+    mounted_dir = mounted_tmpdir / dirname
+
+    mounted_dir.mkdir()
+
+    client = Client(server_channel)
+
+    with pytest.raises(OSError) as exc:
+        client.delete_file(remote_dirname)
+
+    assert "not a regular file" in str(exc.value)
