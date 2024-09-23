@@ -46,13 +46,13 @@ protobuf = ">=3.19,<5"
 
 [[package]]
 name = "ansys-sphinx-theme"
-version = "1.0.9"
+version = "1.0.11"
 description = "A theme devised by ANSYS, Inc. for Sphinx documentation."
 optional = false
 python-versions = "<4,>=3.9"
 files = [
-    {file = "ansys_sphinx_theme-1.0.9-py3-none-any.whl", hash = "sha256:583769355cf8a0d779ce7388bb66792a03f5f9f4ed0d8d8998469d2d2a563ada"},
-    {file = "ansys_sphinx_theme-1.0.9.tar.gz", hash = "sha256:e5190aba2cc5dec0163d7b86d352c9d87a39f6b3e23cd7cea58cf154e0565d3f"},
+    {file = "ansys_sphinx_theme-1.0.11-py3-none-any.whl", hash = "sha256:75c718e407a6b1e868ed5063ba3d1ac93c778195e129253dbaf2367bb87940f5"},
+    {file = "ansys_sphinx_theme-1.0.11.tar.gz", hash = "sha256:a9c3399f71fbdfee08dc97eb6821e660742b7f0c425a3a6f443254a356863ed4"},
 ]
 
 [package.dependencies]
@@ -1785,13 +1785,13 @@ files = [
 
 [[package]]
 name = "tox"
-version = "4.18.1"
+version = "4.20.0"
 description = "tox is a generic virtualenv management and test command line tool"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "tox-4.18.1-py3-none-any.whl", hash = "sha256:35d472032ee1f73fe20c3e0e73d7073a4e85075c86ff02c576f9fc7c6a15a578"},
-    {file = "tox-4.18.1.tar.gz", hash = "sha256:3c0c96bc3a568a5c7e66387a4cfcf8c875b52e09f4d47c9f7a277ec82f1a0b11"},
+    {file = "tox-4.20.0-py3-none-any.whl", hash = "sha256:21a8005e3d3fe5658a8e36b8ca3ed13a4230429063c5cc2a2fdac6ee5aa0de34"},
+    {file = "tox-4.20.0.tar.gz", hash = "sha256:5b78a49b6eaaeab3ae4186415e7c97d524f762ae967c63562687c3e5f0ec23d5"},
 ]
 
 [package.dependencies]
