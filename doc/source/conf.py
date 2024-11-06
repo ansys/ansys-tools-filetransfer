@@ -23,7 +23,7 @@ html_title = html_short_title = "Filetransfer Tool Python Client"
 html_theme_options = {
     "logo": "pyansys",
     "github_url": "https://github.com/ansys/ansys-tools-filetransfer",
-    "show_prev_next": False,
+    "show_prev_next": True,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
