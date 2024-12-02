@@ -91,7 +91,7 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
             port=port,
         )
 
-    with launch_context as proc:
+    with launch_context:
         channel = grpc.insecure_channel(f"localhost:{port}")
 
         # check if the server has started by using the HealthCheck
@@ -116,9 +116,11 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
 @contextmanager
 def _launch_local(*, server_bin, port):
     cmd = [server_bin, f"--server-address=0.0.0.0:{port}"]
-    proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
-    yield proc
-    proc.kill()
+    try:
+        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
+        yield proc
+    finally:
+        proc.kill()
 
 
 @contextmanager
@@ -128,6 +130,7 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
     cmd = [
         "docker",
         "run",
+        "--detach",
         "-v",
         f"/{pathlib.Path(mounted_tmpdir).resolve().as_posix().replace(':', '')}:{server_tmpdir}",
     ]
@@ -135,14 +138,20 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
         cmd += ["-u", f"{os.getuid()}:{os.getgid()}"]
     cmd += [
         "-p",
-        f"{port}:50000/tcp",
+        f"{port}:50000",
         "--name",
         docker_containername,
         docker_imagename,
     ]
-    proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
-    yield proc
-    subprocess.check_call(["docker", "container", "stop", "-t", "0", docker_containername])
+    try:
+        subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Wait for the server to start. For some reason, the health check fails without this.
+        # Maybe a race condition on the port binding?
+        time.sleep(1.)
+        yield
+    finally:
+        subprocess.check_call(["docker", "container", "stop", "-t", "0", docker_containername])
+        subprocess.check_call(["docker", "container", "rm", docker_containername])
 
 
 def _find_free_port() -> int:
