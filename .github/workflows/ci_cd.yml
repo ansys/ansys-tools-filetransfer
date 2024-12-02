@@ -90,10 +90,6 @@ jobs:
       - name: Pull server docker image
         run: |
           docker pull ghcr.io/ansys/tools-filetransfer:latest
-      - name: DEBUG STEP
-        run: |
-          docker run --detach --name tools-filetransfer ghcr.io/ansys/tools-filetransfer:latest
-          docker ps -a
       - name: Test with tox
         # Only the tox environment specified in the tox.ini gh-actions is run
         run: |
