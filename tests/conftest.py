@@ -117,7 +117,9 @@ def server_channel(request, server_tmpdir, mounted_tmpdir):
 def _launch_local(*, server_bin, port):
     cmd = [server_bin, f"--server-address=0.0.0.0:{port}"]
     try:
-        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True)
+        proc = subprocess.Popen(
+            cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, text=True
+        )
         yield proc
     finally:
         proc.kill()
@@ -147,7 +149,7 @@ def _launch_docker(*, docker_imagename, port, mounted_tmpdir, server_tmpdir):
         subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         # Wait for the server to start. For some reason, the health check fails without this.
         # Maybe a race condition on the port binding?
-        time.sleep(1.)
+        time.sleep(1.0)
         yield
     finally:
         subprocess.check_call(["docker", "container", "stop", "-t", "0", docker_containername])
