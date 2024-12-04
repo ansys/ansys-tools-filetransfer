@@ -1,9 +1,0 @@
-ANSYS
-Ansys
-ansys
-API
-FileTransfer
-FileTransfer Tool
-gRPC
-pytest
-
