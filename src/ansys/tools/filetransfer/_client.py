@@ -30,7 +30,6 @@ from collections.abc import Generator
 import hashlib
 import os
 import stat
-from typing import Optional
 
 import grpc
 
@@ -49,7 +48,7 @@ class Client:
     the FileTransfer Tool Server.
     """
 
-    def __init__(self, channel: grpc.Channel, max_message_length: Optional[int] = None):
+    def __init__(self, channel: grpc.Channel, max_message_length: int | None = None):
         """Initialize the client.
 
         Parameters
@@ -256,6 +255,10 @@ class Client:
                         )
                     )
                     offset += len(chunk)
+            if offset != size_of_file_in_bytes:
+                raise RuntimeError(
+                    "File transfer failed: The size of the file has changed during upload."
+                )
             # 3) finalize
             yield file_transfer_service_pb2.UploadFileRequest(
                 finalize=file_transfer_service_pb2.UploadFileRequest.Finalize()

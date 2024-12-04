@@ -3,7 +3,7 @@
 from datetime import datetime
 import os
 
-from ansys_sphinx_theme import ansys_favicon, get_version_match, pyansys_logo_black
+from ansys_sphinx_theme import ansys_favicon, get_version_match
 
 from ansys.tools.filetransfer import __version__
 
@@ -15,15 +15,15 @@ release = version = __version__
 cname = os.getenv("DOCUMENTATION_CNAME", "filetransfer.tools.docs.pyansys.com")
 
 # use the default pyansys logo
-html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 
 html_title = html_short_title = "Filetransfer Tool Python Client"
 
 # specify the location of your github repo
 html_theme_options = {
+    "logo": "pyansys",
     "github_url": "https://github.com/ansys/ansys-tools-filetransfer",
-    "show_prev_next": False,
+    "show_prev_next": True,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
