@@ -7,8 +7,7 @@
 ## Individual Contributors
 
 * [Alex Kaszynski](https://github.com/akaszynski)
-* [Dominik Gresch](https://github.com/greschd)
-* [Kathy Pippert](https://github.com/PipKat)
 * [Jorge Martínez](https://github.com/jorgepiloto)
+* [Kathy Pippert](https://github.com/PipKat)
 * [Roberto Pastor Muela](https://github.com/RobPasMue)
 * [Udo Tremel](https://github.com/ansutremel)
