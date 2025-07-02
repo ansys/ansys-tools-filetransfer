@@ -1,0 +1,4 @@
+User-agent: *
+
+
+Sitemap: https://filetransfer.tools.docs.pyansys.com/sitemap.xml

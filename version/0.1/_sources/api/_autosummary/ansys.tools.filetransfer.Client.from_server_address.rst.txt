@@ -1,0 +1,6 @@
+from\_server\_address
+=====================
+
+.. currentmodule:: ansys.tools.filetransfer
+
+.. automethod:: Client.from_server_address
