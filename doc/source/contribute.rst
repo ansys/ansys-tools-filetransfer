@@ -59,7 +59,7 @@ container is recommended.
 
     .. code:: bash
 
-        docker pull ghcr.io/ansys/tools-filetransfer:latest
+        docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
 
 #.  Run the tests with `tox`_.
 

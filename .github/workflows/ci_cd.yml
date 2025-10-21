@@ -89,7 +89,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pull server docker image
         run: |
-          docker pull ghcr.io/ansys/tools-filetransfer:latest
+          docker pull ghcr.io/ansys-internal/tools-filetransfer:latest
       - name: Test with tox
         # Only the tox environment specified in the tox.ini gh-actions is run
         run: |

@@ -22,23 +22,39 @@ To begin using the FileTransfer Tool, import the package with this command:
 
     import ansys.tools.filetransfer as ft
 
-The FileTransfer Tool API contains a single class, :class:`.Client`, which is used to
-communicate with the server. You instantiate this class with the server
-address and port number:
+The FileTransfer Tool API contains a :class:`.Client` class, which is used to
+communicate with the server. You instantiate this class with the transport options
+used to connect to the server.
 
 .. code-block:: python
 
-    client = ft.Client.from_server_address("localhost:50052")
+    client = ft.Client.from_transport_options(
+        transport_options=ft.UDSOptions()
+    )
 
-Alternatively, you can instantiate the :class:`.Client` with the :class:`grpc.Channel` class:
+The ``transport_options`` parameter allows you to specify how the client connects
+to the server. To connect with mutual TLS (mTLS), provide an
+:class:`.MTLSOptions` instance:
+
+.. code-block:: python
+
+    client = ft.Client.from_transport_options(
+        transport_options=ft.MTLSOptions(
+            host="localhost",
+            port=50000,
+            certs_dir="path/to/certificates/directory"
+        )
+    )
+
+Alternatively, you can instantiate the :class:`.Client` class directly with a pre-existing
+gRPC channel:
 
 .. code-block:: python
 
     import grpc
-    channel = grpc.insecure_channel("localhost:50052")
-    client = ft.Client(channel)
 
-The preceding code allows you to change how the channel is created.
+    channel = <create your gRPC channel here>
+    client = ft.Client(channel=channel)
 
 Following instantiation, you can use the client to upload and download files:
 
