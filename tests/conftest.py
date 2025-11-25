@@ -58,7 +58,7 @@ def pytest_addoption(parser):
         DOCKER_IMAGENAME_OPTION_KEY,
         action="store",
         help=("Docker image to be used for running the test."),
-        default="ghcr.io/ansys-internal/tools-filetransfer:latest",
+        default="ghcr.io/ansys/tools-filetransfer:latest",
     )
     parser.addoption(
         TRANSPORT_MODE_OPTION_KEY,
