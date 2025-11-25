@@ -27,6 +27,7 @@ packages = [{ include = "ansys", from = "src" }]
 python = ">=3.10,<4.0"
 grpcio = ">=1.17"
 ansys-api-tools-filetransfer = "^0.1.0"
+ansys-tools-local-product-launcher = ">=0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
