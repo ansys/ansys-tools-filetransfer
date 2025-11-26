@@ -4,6 +4,41 @@ This project uses [towncrier](https://towncrier.readthedocs.io/) and the changes
 
 <!-- towncrier release notes start -->
 
+## [0.2.0](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.2.0) - November 25, 2025
+
+
+### Dependencies
+
+- Update transitive dependencies [#145](https://github.com/ansys/ansys-tools-filetransfer/pull/145)
+- Bump jinja2 from 3.1.5 to 3.1.6 [#146](https://github.com/ansys/ansys-tools-filetransfer/pull/146)
+- Bump the dependencies group with 3 updates [#147](https://github.com/ansys/ansys-tools-filetransfer/pull/147)
+- Bump the dependencies group with 2 updates [#148](https://github.com/ansys/ansys-tools-filetransfer/pull/148)
+- Bump ansys/actions from 8 to 9 [#152](https://github.com/ansys/ansys-tools-filetransfer/pull/152)
+- Bump the dependencies group across 1 directory with 2 updates [#153](https://github.com/ansys/ansys-tools-filetransfer/pull/153)
+- Bump tox from 4.25.0 to 4.26.0 in the dependencies group [#154](https://github.com/ansys/ansys-tools-filetransfer/pull/154)
+- Adapt to gRPC transport option changes [#182](https://github.com/ansys/ansys-tools-filetransfer/pull/182)
+
+
+### Miscellaneous
+
+- Chore(deps): bump the dependencies group across 1 directory with 5 updates [#156](https://github.com/ansys/ansys-tools-filetransfer/pull/156)
+- Chore(deps): bump ansys/actions from 9 to 10 [#157](https://github.com/ansys/ansys-tools-filetransfer/pull/157)
+- Chore(deps): bump the dependencies group with 2 updates [#158](https://github.com/ansys/ansys-tools-filetransfer/pull/158)
+- Chore(deps-dev): bump the dependencies group with 3 updates [#159](https://github.com/ansys/ansys-tools-filetransfer/pull/159)
+- Add security.md file [#162](https://github.com/ansys/ansys-tools-filetransfer/pull/162)
+- Chore(deps): bump the dependencies group with 3 updates [#163](https://github.com/ansys/ansys-tools-filetransfer/pull/163)
+- Chore(deps): bump the dependencies group across 1 directory with 6 updates [#168](https://github.com/ansys/ansys-tools-filetransfer/pull/168)
+- Chore(deps): bump actions/checkout from 4 to 5 [#169](https://github.com/ansys/ansys-tools-filetransfer/pull/169)
+- Chore(deps): bump peter-evans/create-or-update-comment from 4 to 5 [#176](https://github.com/ansys/ansys-tools-filetransfer/pull/176)
+- CI: fix Github release [#183](https://github.com/ansys/ansys-tools-filetransfer/pull/183)
+
+
+### Maintenance
+
+- chore: update CHANGELOG for v0.1.1 [#142](https://github.com/ansys/ansys-tools-filetransfer/pull/142)
+- Update license header year [#144](https://github.com/ansys/ansys-tools-filetransfer/pull/144)
+- docs: Update ``CONTRIBUTORS.md`` with the latest contributors [#151](https://github.com/ansys/ansys-tools-filetransfer/pull/151)
+
 ## [0.1.1](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.1.1) - 2024-12-04
 
 
