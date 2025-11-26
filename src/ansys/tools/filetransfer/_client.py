@@ -39,6 +39,9 @@ from ansys.api.tools.filetransfer.v1 import (
 )
 
 from ._log import LOGGER
+from ._transport_options import InsecureOptions, MTLSOptions, UDSOptions
+
+__all__ = ["Client"]
 
 
 class Client:
@@ -76,18 +79,18 @@ class Client:
         )
 
     @classmethod
-    def from_server_address(
+    def from_transport_options(
         cls,
-        server_address: str,
+        transport_options: InsecureOptions | MTLSOptions | UDSOptions,
         *,
         max_message_length: int = 1 << 17,
     ) -> "Client":
-        """Initialize the client from a server URL.
+        """Initialize the client from transport options.
 
         Parameters
         ----------
-        server_address :
-            IPv4/IPv6 address and port of the server to connect to. For example, ``10.0.0.42:12345``.
+        transport_options :
+            Transport options to use for connecting to the server.
         max_message_length :
             Maximum message length in bytes to send over the channel.
 
@@ -96,12 +99,8 @@ class Client:
         :
             Instantiated FileTransfer client.
         """
-        if not server_address:
-            raise ValueError("No server address was given.")
-
-        channel = grpc.insecure_channel(
-            server_address,
-            options=[
+        channel = transport_options.create_channel(
+            grpc_options=[
                 ("grpc.max_send_message_length", max_message_length),
                 ("grpc.max_receive_message_length", max_message_length),
             ],
