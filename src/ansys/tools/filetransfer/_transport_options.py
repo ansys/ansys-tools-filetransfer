@@ -20,19 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Client library for the Ansys file transfer tool."""
+from ansys.tools.local_product_launcher.grpc_transport import InsecureOptions, MTLSOptions
+from ansys.tools.local_product_launcher.grpc_transport import UDSOptions as UDSOptionsBase
 
-import importlib.metadata
+__all__ = ["InsecureOptions", "MTLSOptions", "UDSOptions"]
 
-from ._client import Client
-from ._transport_options import InsecureOptions, MTLSOptions, UDSOptions
 
-__all__ = [
-    "Client",
-    "TransportMode",
-    "UDSOptions",
-    "MTLSOptions",
-    "InsecureOptions",
-]
+class UDSOptions(UDSOptionsBase):
+    """Options for UDS transport mode."""
 
-__version__ = importlib.metadata.version(__name__.replace(".", "-"))
+    uds_service: str = "ansys_tools_filetransfer"  # Provide the service name for UDS
