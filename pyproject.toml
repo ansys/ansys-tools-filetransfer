@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 # Check https://python-poetry.org/docs/pyproject/ for all available sections
 name = "ansys-tools-filetransfer"
-version = "0.2.dev0"
+version = "0.3.dev0"
 description = "A Python client for uploading and downloading files via gRPC."
 license = "MIT"
 authors = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
@@ -27,6 +27,7 @@ packages = [{ include = "ansys", from = "src" }]
 python = ">=3.10,<4.0"
 grpcio = ">=1.17"
 ansys-api-tools-filetransfer = "^0.1.0"
+ansys-tools-local-product-launcher = ">=0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
