@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
       - name: Install dependencies
@@ -74,9 +74,9 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -95,7 +95,7 @@ jobs:
         run: |
           tox
       - name: "Upload coverage report (HTML)"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.MAIN_PYTHON_VERSION
         with:
           name: coverage-report-html
@@ -114,9 +114,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
       - name: Install dependencies
@@ -127,7 +127,7 @@ jobs:
           touch doc/_build/html/.nojekyll
           echo ${{ env.DOCUMENTATION_CNAME }} > doc/_build/html/CNAME
       - name: Upload HTML Documentation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: documentation-html
           path: doc/_build/html
@@ -139,7 +139,7 @@ jobs:
       - name: Generate the PDF documentation with tox
         run: tox -e doc-linux-pdf
       - name: "Upload PDF Documentation"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: documentation-pdf
           path: doc/_build/latex/ansys-tools-filetransfer.pdf
