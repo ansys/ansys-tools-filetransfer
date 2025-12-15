@@ -4,6 +4,22 @@ This project uses [towncrier](https://towncrier.readthedocs.io/) and the changes
 
 <!-- towncrier release notes start -->
 
+## [0.2.1](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.2.1) - December 15, 2025
+
+
+### Miscellaneous
+
+- Chore(deps): bump actions/setup-python from 5 to 6 [#170](https://github.com/ansys/ansys-tools-filetransfer/pull/170)
+- Chore(deps): bump actions/labeler from 5 to 6 [#172](https://github.com/ansys/ansys-tools-filetransfer/pull/172)
+- Chore(deps): bump actions/upload-artifact from 4 to 5 [#177](https://github.com/ansys/ansys-tools-filetransfer/pull/177)
+- CHORE:  Update missing or outdated files [#179](https://github.com/ansys/ansys-tools-filetransfer/pull/179)
+- Chore(deps): bump actions/checkout from 5 to 6 [#181](https://github.com/ansys/ansys-tools-filetransfer/pull/181)
+- Bump dev version to 0.3.dev0 [#185](https://github.com/ansys/ansys-tools-filetransfer/pull/185)
+- Chore: update CHANGELOG for v0.2.0 [#188](https://github.com/ansys/ansys-tools-filetransfer/pull/188)
+- Add dependabot cooldown period [#189](https://github.com/ansys/ansys-tools-filetransfer/pull/189)
+- Chore(deps-dev): bump mypy from 1.18.2 to 1.19.0 in the dependencies group [#190](https://github.com/ansys/ansys-tools-filetransfer/pull/190)
+- Use ansys-tools-common instead of ansys-tools-local-product-launcher [#192](https://github.com/ansys/ansys-tools-filetransfer/pull/192)
+
 ## [0.2.0](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.2.0) - November 25, 2025
 
 
