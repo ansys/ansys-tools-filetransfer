@@ -20,8 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ansys.tools.local_product_launcher.grpc_transport import InsecureOptions, MTLSOptions
-from ansys.tools.local_product_launcher.grpc_transport import UDSOptions as UDSOptionsBase
+from ansys.tools.common.launcher.grpc_transport import InsecureOptions, MTLSOptions
+from ansys.tools.common.launcher.grpc_transport import UDSOptions as UDSOptionsBase
 
 __all__ = ["InsecureOptions", "MTLSOptions", "UDSOptions"]
 
