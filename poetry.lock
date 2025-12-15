@@ -73,23 +73,29 @@ changelog = ["PyYAML (==6.0.2)", "sphinx-design (==0.6.1)"]
 doc = ["Pillow (>=9.0)", "PyGitHub (==2.7.0)", "PyYAML (==6.0.2)", "jupytext (==1.17.3)", "nbsphinx (==0.9.7)", "notebook (==7.4.5)", "numpydoc (==1.9.0)", "pandas (==2.3.2)", "plotly (==6.3.0)", "pyvista[jupyter] (==0.46.2)", "requests (==2.32.5)", "sphinx-autoapi (==3.6.1)", "sphinx-copybutton (==0.5.2)", "sphinx-design (==0.6.1)", "sphinx-gallery (==0.19.0)", "sphinx-jinja (==2.0.2)", "sphinx-notfound-page (==1.1.0)", "sphinx-theme-builder[cli] (==0.2.0b2)", "tox (==4.28.4)"]
 
 [[package]]
-name = "ansys-tools-local-product-launcher"
-version = "0.2.0"
-description = "A utility for launching Ansys products on a local machine"
+name = "ansys-tools-common"
+version = "0.4.0"
+description = "A set of tools for PyAnsys libraries"
 optional = false
-python-versions = "<4.0,>=3.10"
+python-versions = "<4,>=3.10"
 groups = ["main"]
 files = [
-    {file = "ansys_tools_local_product_launcher-0.2.0-py3-none-any.whl", hash = "sha256:5cc4d5b0a2242869c04a6a10996445131378f591ac4512c19cf7a032c26e3e1e"},
-    {file = "ansys_tools_local_product_launcher-0.2.0.tar.gz", hash = "sha256:29764b10fafe5dc62e7a5334e3914623bf5306aadfeee873077f7f75d0501fa2"},
+    {file = "ansys_tools_common-0.4.0-py3-none-any.whl", hash = "sha256:acb36e8f7434bf6c617279ab2357d0b1a1bb2d90cb47b69f2db678b6e0bc173c"},
+    {file = "ansys_tools_common-0.4.0.tar.gz", hash = "sha256:68e4c2949d05748bba8e6c66dea3f70dd507b7db7c434388f2beff0e30beeb40"},
 ]
 
 [package.dependencies]
 appdirs = ">=1.4.4"
 click = ">=8.1.3"
-grpcio = ">=1.51.1"
-grpcio-health-checking = ">=1.43"
-typing-extensions = ">=4.5.0"
+platformdirs = ">=3.6"
+requests = ">=2.32.4"
+scooby = ">=0.5.12"
+typing-extensions = ">=4.5"
+
+[package.extras]
+all = ["ansys-tools-filetransfer (>=0.1.1)", "ansys-tools-visualization-interface (>=0.9.2)"]
+filetransfer = ["ansys-tools-filetransfer (>=0.1.1)"]
+graphics = ["ansys-tools-visualization-interface (>=0.9.2)"]
 
 [[package]]
 name = "appdirs"
@@ -199,7 +205,7 @@ version = "2025.11.12"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.7"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "certifi-2025.11.12-py3-none-any.whl", hash = "sha256:97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b"},
     {file = "certifi-2025.11.12.tar.gz", hash = "sha256:d8ab5478f2ecd78af242878415affce761ca6bc54a22a27e026d7c25357c3316"},
@@ -333,7 +339,7 @@ version = "3.4.4"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 optional = false
 python-versions = ">=3.7"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "charset_normalizer-3.4.4-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:e824f1492727fa856dd6eda4f7cee25f8518a12f3c4a56a74e8095695089cf6d"},
     {file = "charset_normalizer-3.4.4-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4bd5d4137d500351a30687c2d3971758aac9a19208fc110ccb9d7188fbe709e8"},
@@ -803,7 +809,7 @@ version = "1.76.0"
 description = "Standard Health Checking Service for gRPC"
 optional = false
 python-versions = ">=3.9"
-groups = ["main", "dev"]
+groups = ["dev"]
 files = [
     {file = "grpcio_health_checking-1.76.0-py3-none-any.whl", hash = "sha256:9743f345a855ba030cc7c381361606870b79d33bb71d7756efa47b6faa970f81"},
     {file = "grpcio_health_checking-1.76.0.tar.gz", hash = "sha256:b7a99d74096b3ab3a59987fc02374068e1c180a352e8d1f79f10e5a23727098d"},
@@ -854,7 +860,7 @@ version = "3.11"
 description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
 python-versions = ">=3.8"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "idna-3.11-py3-none-any.whl", hash = "sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea"},
     {file = "idna-3.11.tar.gz", hash = "sha256:795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"},
@@ -1567,7 +1573,7 @@ version = "4.5.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
 optional = false
 python-versions = ">=3.10"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "platformdirs-4.5.0-py3-none-any.whl", hash = "sha256:e578a81bb873cbb89a41fcc904c7ef523cc18284b7e3b3ccf06aca1403b7ebd3"},
     {file = "platformdirs-4.5.0.tar.gz", hash = "sha256:70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"},
@@ -1887,7 +1893,7 @@ version = "2.32.5"
 description = "Python HTTP for Humans."
 optional = false
 python-versions = ">=3.9"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6"},
     {file = "requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"},
@@ -1951,6 +1957,21 @@ pygments = ">=2.13.0,<3.0.0"
 
 [package.extras]
 jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
+name = "scooby"
+version = "0.11.0"
+description = "A Great Dane turned Python environment detective"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "scooby-0.11.0-py3-none-any.whl", hash = "sha256:a79663d1a7711eb104e4b2935988ea1ed5f7be6b7288fad23b4fba7462832f9d"},
+    {file = "scooby-0.11.0.tar.gz", hash = "sha256:3dfacc6becf2d6558efa4b625bae3b844ced5d256f3143ebf774e005367e712a"},
+]
+
+[package.extras]
+cpu = ["mkl", "psutil"]
 
 [[package]]
 name = "secretstorage"
@@ -2315,7 +2336,7 @@ version = "2.5.0"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
 python-versions = ">=3.9"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "urllib3-2.5.0-py3-none-any.whl", hash = "sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc"},
     {file = "urllib3-2.5.0.tar.gz", hash = "sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"},
@@ -2372,4 +2393,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "5d36059949d5fcf95aea0344844545f98ce3446936806b32fcb6f12f9a99b22b"
+content-hash = "740c324b31eab93830e97ae40ecbec30093d6f90e497f582cd922236fd458ad1"
