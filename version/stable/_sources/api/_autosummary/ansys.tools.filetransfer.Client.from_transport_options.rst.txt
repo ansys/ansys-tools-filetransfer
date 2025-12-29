@@ -1,0 +1,6 @@
+from\_transport\_options
+========================
+
+.. currentmodule:: ansys.tools.filetransfer
+
+.. automethod:: Client.from_transport_options
