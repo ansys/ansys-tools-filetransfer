@@ -8,7 +8,7 @@ on:
       - main
 
 env:
-  MAIN_PYTHON_VERSION: "3.13"
+  MAIN_PYTHON_VERSION: "3.14"
   PACKAGE_NAME: "ansys-tools-filetransfer"
   DOCUMENTATION_CNAME: "filetransfer.tools.docs.pyansys.com"
 
@@ -49,7 +49,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ['3.10', '3.11', '3.12', '3.13']
+        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
         should-release:
           - ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags') }}
         exclude:
@@ -70,7 +70,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ['3.10', '3.11', '3.12', '3.13']
+        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
       fail-fast: false
 
     steps:
@@ -95,7 +95,7 @@ jobs:
         run: |
           tox
       - name: "Upload coverage report (HTML)"
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == env.MAIN_PYTHON_VERSION
         with:
           name: coverage-report-html
@@ -127,7 +127,7 @@ jobs:
           touch doc/_build/html/.nojekyll
           echo ${{ env.DOCUMENTATION_CNAME }} > doc/_build/html/CNAME
       - name: Upload HTML Documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: documentation-html
           path: doc/_build/html
@@ -139,7 +139,7 @@ jobs:
       - name: Generate the PDF documentation with tox
         run: tox -e doc-linux-pdf
       - name: "Upload PDF Documentation"
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: documentation-pdf
           path: doc/_build/latex/ansys-tools-filetransfer.pdf

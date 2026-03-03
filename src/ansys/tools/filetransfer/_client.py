@@ -1,4 +1,4 @@
-# Copyright (C) 2022 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2022 - 2026 ANSYS, Inc. and/or its affiliates.
 # Copyright 2022 ANSYS, Inc. Unauthorized use, distribution, or duplication is prohibited.
 # SPDX-License-Identifier: MIT
 #
@@ -26,6 +26,7 @@
 This module implements the high-level Python client for interacting with
 the Ansys FileTransfer Tool Server via gRPC.
 """
+
 from collections.abc import Generator
 import hashlib
 import os
