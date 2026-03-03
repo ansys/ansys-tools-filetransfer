@@ -18,6 +18,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
@@ -26,7 +27,7 @@ packages = [{ include = "ansys", from = "src" }]
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
 grpcio = ">=1.17"
-ansys-api-tools-filetransfer = "^0.1.0"
+ansys-api-tools-filetransfer = "^0.2.0"
 ansys-tools-common = ">=0.4.0"
 
 
