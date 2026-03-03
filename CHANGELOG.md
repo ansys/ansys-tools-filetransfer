@@ -4,6 +4,30 @@ This project uses [towncrier](https://towncrier.readthedocs.io/) and the changes
 
 <!-- towncrier release notes start -->
 
+## [0.2.2](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.2.2) - March 03, 2026
+
+
+### Dependencies
+
+- Add support for Python 3.14 [#208](https://github.com/ansys/ansys-tools-filetransfer/pull/208)
+- Release 0.2.2 [#209](https://github.com/ansys/ansys-tools-filetransfer/pull/209)
+
+
+### Miscellaneous
+
+- Chore: update CHANGELOG for v0.2.1 [#195](https://github.com/ansys/ansys-tools-filetransfer/pull/195)
+- Chore(deps-dev): bump the dependencies group across 1 directory with 4 updates [#196](https://github.com/ansys/ansys-tools-filetransfer/pull/196)
+- Chore(deps): bump actions/upload-artifact from 5 to 6 [#197](https://github.com/ansys/ansys-tools-filetransfer/pull/197)
+- Chore(deps-dev): bump pre-commit from 4.5.0 to 4.5.1 in the dependencies group [#198](https://github.com/ansys/ansys-tools-filetransfer/pull/198)
+- Chore(deps-dev): bump tox from 4.32.0 to 4.34.1 in the dependencies group [#199](https://github.com/ansys/ansys-tools-filetransfer/pull/199)
+- Chore(deps): bump the dependencies group across 1 directory with 2 updates [#201](https://github.com/ansys/ansys-tools-filetransfer/pull/201)
+- Chore(deps): bump the dependencies group across 1 directory with 4 updates [#203](https://github.com/ansys/ansys-tools-filetransfer/pull/203)
+
+
+### Maintenance
+
+- Chore: Update missing or outdated files [#206](https://github.com/ansys/ansys-tools-filetransfer/pull/206)
+
 ## [0.2.1](https://github.com/ansys/ansys-tools-filetransfer/releases/tag/v0.2.1) - December 15, 2025
 
 
