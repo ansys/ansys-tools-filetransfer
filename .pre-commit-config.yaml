@@ -1,28 +1,28 @@
 repos:
 
 - repo: https://github.com/asottile/pyupgrade
-  rev: v3.19.0
+  rev: v3.21.2
   hooks:
   - id: pyupgrade
     args: [--py310-plus]
 
 - repo: https://github.com/psf/black
-  rev: 24.10.0
+  rev: 26.1.0
   hooks:
   - id: black
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.13.2
+  rev: 8.0.1
   hooks:
   - id: isort
 
 - repo: https://github.com/pycqa/flake8
-  rev: 7.1.1
+  rev: 7.3.0
   hooks:
   - id: flake8
 
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.3.0
+  rev: v2.4.1
   hooks:
   - id: codespell
     exclude: "^(pyproject\\.toml)|(poetry\\.lock)|(CONTRIBUTORS\\.md)|(CODE_OF_CONDUCT\\.md)$"
@@ -35,7 +35,7 @@ repos:
     exclude: "^(tests/)|(_vendored/)"
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.4.4
+  rev: v0.5.2
   hooks:
   - id: add-license-headers
     args: ["--start_year", "2022"]
