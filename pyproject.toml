@@ -75,7 +75,6 @@ mypy_path = "$MYPY_CONFIG_FILE_DIR/src:$MYPY_CONFIG_FILE_DIR/tests"
 module = ["grpc.*", "grpc_health.*"]
 ignore_missing_imports = true
 
-
 [tool.codespell]
 ignore-words-list = 'synopsys'
 
