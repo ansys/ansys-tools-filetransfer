@@ -1,0 +1,31 @@
+﻿Client
+======
+
+.. currentmodule:: ansys.tools.filetransfer
+
+.. autoclass:: Client
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree:
+   
+      
+      
+      Client.download_file
+      
+      
+      Client.from_transport_options
+      
+      
+      Client.upload_file
+      
+   
+   
+
+   
+   
+   
