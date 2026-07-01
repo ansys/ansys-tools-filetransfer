@@ -49,21 +49,21 @@ protobuf = ">=5.29"
 
 [[package]]
 name = "ansys-sphinx-theme"
-version = "1.8.2"
+version = "1.9.0"
 description = "A theme devised by ANSYS, Inc. for Sphinx documentation."
 optional = false
 python-versions = "<4,>=3.10"
 groups = ["dev"]
 files = [
-    {file = "ansys_sphinx_theme-1.8.2-py3-none-any.whl", hash = "sha256:cdc2553586700c3b5e9a594ccfa3255fdb6aefd7fc4431494f4c847754bf7718"},
-    {file = "ansys_sphinx_theme-1.8.2.tar.gz", hash = "sha256:73570863d8a4f5f723826723f44cf5666c4e9b443dbc66fd3640f12d4241b7c4"},
+    {file = "ansys_sphinx_theme-1.9.0-py3-none-any.whl", hash = "sha256:eb483928d86b1906aa4bfd9db225f1f67eb50ebbf7e9d7b9c652c87efe0ea038"},
+    {file = "ansys_sphinx_theme-1.9.0.tar.gz", hash = "sha256:23a6d2f22f318a0ecc4954e8c017a5a6fccfcfa32d4e4446a9355f7516086cf9"},
 ]
 
 [package.dependencies]
 importlib-metadata = ">=4.0"
 Jinja2 = ">=3.1.2"
 pdf2image = ">=1.17.0"
-pydata-sphinx-theme = ">=0.15.4,<0.18"
+pydata-sphinx-theme = ">=0.15.4,<0.19"
 PyYAML = ">=6.0"
 Sphinx = ">=6.1.0"
 
@@ -74,14 +74,14 @@ changelog = ["PyYAML (>=6.0.3)", "sphinx-design (>=0.6.0)"]
 
 [[package]]
 name = "ansys-tools-common"
-version = "0.5.0"
+version = "0.5.1"
 description = "A set of tools for PyAnsys libraries"
 optional = false
 python-versions = "<4,>=3.10"
 groups = ["main"]
 files = [
-    {file = "ansys_tools_common-0.5.0-py3-none-any.whl", hash = "sha256:07f537d3095a731a6f9fd8909940ab1da2a4a108dedf52cd91596e28c685b5a1"},
-    {file = "ansys_tools_common-0.5.0.tar.gz", hash = "sha256:2dd98e6fcb4a0ceb7e118b394575bffbd9c7b7dbcfc6d56ffdd03de79ce3145a"},
+    {file = "ansys_tools_common-0.5.1-py3-none-any.whl", hash = "sha256:7b753197fae70a46d51c8a4a94945247c07bed7d7fdc8b5541ced0e62c67ff1a"},
+    {file = "ansys_tools_common-0.5.1.tar.gz", hash = "sha256:54e884b44e00d8fb847a149a4c27d2d9c051049e7ffca933f3049901ac18d127"},
 ]
 
 [package.dependencies]
@@ -2357,14 +2357,14 @@ files = [
 
 [[package]]
 name = "tox"
-version = "4.55.1"
+version = "4.56.1"
 description = "tox is a generic virtualenv management and test command line tool"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "tox-4.55.1-py3-none-any.whl", hash = "sha256:e2084be6dfdef96ba1bed4948e6a1f73613d6952e1477be5dca45653d4c053c8"},
-    {file = "tox-4.55.1.tar.gz", hash = "sha256:0678fbf26dd5b559b1ef128fa4388325920219322ebc8cc5f3497627c00f4472"},
+    {file = "tox-4.56.1-py3-none-any.whl", hash = "sha256:4d06b925c4dd67872099b39c5a46fba79a2169c5f6e32060f95a8b1181f0ef55"},
+    {file = "tox-4.56.1.tar.gz", hash = "sha256:db1c2610802553189cf40de251661d066a635ee0ed9bf2a60093b5f1a7f36ef8"},
 ]
 
 [package.dependencies]
