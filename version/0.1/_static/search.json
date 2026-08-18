@@ -1,0 +1,128 @@
+[
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.from_server_address",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.from_server_address.html#from_server_address",
+        "title": "from_server_address",
+        "section": "from_server_address",
+        "text": "Initialize the client from a server URL.\nserver_address (str) – IPv4/IPv6 address and port of the server to connect to. For example, 10.0.0.42:12345.\nmax_message_length (int, default: 131072) – Maximum message length in bytes to send over the channel.\nClient\nInstantiated FileTransfer client.\nfrom_server_address\nstr\n10.0.0.42:12345\nint\n131072\nClient"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.from_server_address",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.from_server_address.html#ansys.tools.filetransfer.Client.from_server_address",
+        "title": "from_server_address > from_server_address > from_server_address",
+        "section": "from_server_address > from_server_address",
+        "text": "classmethod Client.from_server_address(server_address, *, max_message_length=131072)\n\nInitialize the client from a server URL.\n\nParameters\n\nserver_address (str) – IPv4/IPv6 address and port of the server to connect to. For example, 10.0.0.42:12345.\n\nmax_message_length (int, default: 131072) – Maximum message length in bytes to send over the channel.\n\nReturn type\n\nClient\n\nReturns\n\nInstantiated FileTransfer client.\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.download_file",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.download_file.html#download_file",
+        "title": "download_file",
+        "section": "download_file",
+        "text": "Download a file from the server.\nremote_filename (str) – Name of the remote file to download.\nlocal_filename (str) – Name of the local file to create.\nchunk_size (int, default: 65536) – Maximum size in bytes of a chunk of data to transfer per request.\ncompute_sha1_checksum (bool, default: True) – Whether to compute the SHA1-checksum of the file to be downloaded on the\nserver-side.\nRuntimeError : – If a response indicates an error on the server-side.\nValueError : – If the checksums between the downloaded file and remote file do not match.\nNone\ndownload_file\nstr\nstr\nint\n65536\nbool\nTrue\nNone"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.download_file",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.download_file.html#ansys.tools.filetransfer.Client.download_file",
+        "title": "download_file > download_file > download_file",
+        "section": "download_file > download_file",
+        "text": "Client.download_file(remote_filename, local_filename, chunk_size=65536, compute_sha1_checksum=True)\n\nDownload a file from the server.\n\nParameters\n\nremote_filename (str) – Name of the remote file to download.\n\nlocal_filename (str) – Name of the local file to create.\n\nchunk_size (int, default: 65536) – Maximum size in bytes of a chunk of data to transfer per request.\n\ncompute_sha1_checksum (bool, default: True) – Whether to compute the SHA1-checksum of the file to be downloaded on the\nserver-side.\n\nRaises\n\nRuntimeError : – If a response indicates an error on the server-side.\n\nValueError : – If the checksums between the downloaded file and remote file do not match.\n\nReturn type\n\nNone\n\n!! processed by numpydoc !!"
+    },
+    {
+        "objectID": "api/index",
+        "href": "api/index.html#api-reference",
+        "title": "API reference",
+        "section": "API reference",
+        "text": "This section describes FileTransfer Tool API endpoints so that you can\nunderstand how to interact with them programmatically.\nClient(channel[, max_message_length])\nProvides the high-level Python client for the FileTransfer Tool.\nAPI reference\nClient"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.html#client",
+        "title": "Client",
+        "section": "Client",
+        "text": "Provides the high-level Python client for the FileTransfer Tool.\nYou use this client’s high-level API to upload and download files to\nthe FileTransfer Tool Server.\nClient.download_file(remote_filename, ...[, ...])\nDownload a file from the server.\nClient.from_server_address(server_address, *)\nInitialize the client from a server URL.\nClient.upload_file(local_filename, ...[, ...])\nUpload a file to the server.\nClient\nClient.download_file\nClient.from_server_address\nClient.upload_file"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.html#ansys.tools.filetransfer.Client",
+        "title": "Client > Client > Client",
+        "section": "Client > Client",
+        "text": "class ansys.tools.filetransfer.Client(channel, max_message_length=None)\n\nProvides the high-level Python client for the FileTransfer Tool.\n\nYou use this client’s high-level API to upload and download files to\nthe FileTransfer Tool Server.\n\n!! processed by numpydoc !!\n\nMethods\n\n\n\n\n\n\n\nClient.download_file(remote_filename, ...[, ...])\n\nDownload a file from the server.\n\nClient.from_server_address(server_address, *)\n\nInitialize the client from a server URL.\n\nClient.upload_file(local_filename, ...[, ...])\n\nUpload a file to the server.\n\n"
+    },
+    {
+        "objectID": "usage",
+        "href": "usage.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "Getting started"
+    },
+    {
+        "objectID": "usage",
+        "href": "usage.html#installation",
+        "title": "Getting started > Installation",
+        "section": "Installation",
+        "text": "Install the latest version of the FileTransfer Tool from PyPI with this command:\nYou should use a virtual environment\nbecause it keeps Python packages isolated from your system Python.\nInstallation"
+    },
+    {
+        "objectID": "usage",
+        "href": "usage.html#usage",
+        "title": "Getting started > Usage",
+        "section": "Usage",
+        "text": "To begin using the FileTransfer Tool, import the package with this command:\nThe FileTransfer Tool API contains a single class, Client, which is used to\ncommunicate with the server. You instantiate this class with the server\naddress and port number:\nAlternatively, you can instantiate the Client with the grpc.Channel class:\nThe preceding code allows you to change how the channel is created.\nFollowing instantiation, you can use the client to upload and download files:\nUsage\nClient\nClient\ngrpc.Channel"
+    },
+    {
+        "objectID": "contribute",
+        "href": "contribute.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in\nContributing\nin the PyAnsys developer’s guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to the FileTransfer Tool.\nThe following contribution information is specific to the FileTransfer Tool.\nContribute"
+    },
+    {
+        "objectID": "contribute",
+        "href": "contribute.html#install-in-development-mode",
+        "title": "Contribute > Install in development mode",
+        "section": "Install in development mode",
+        "text": "Installing the FileTransfer Tool in development mode allows you\nto modify the source and enhance it.\nClone the repository and enter the newly created directory:\nInstall dependencies:\nThe project uses Poetry to manage the development environment.\nCreate a virtual environment and install the package with the\ndevelopment dependencies:\nActivate the virtual environment:\nInstall in development mode"
+    },
+    {
+        "objectID": "contribute",
+        "href": "contribute.html#test",
+        "title": "Contribute > Test",
+        "section": "Test",
+        "text": "You can run the tests for the FileTransfer Tool with either\na local executable of the server or with a Docker container.\nUnless you are contributing to development of the server, using a Docker\ncontainer is recommended.\nPull the Docker image:\nRun the tests with tox.\nFor example, this command runs the test for Python 3.10:\nAlternatively, you can run the tests directly via pytest. Ensure that the\ndevelopment virtual environment is activated:\nThen, run the tests:\nRunning the tests directly via pytest also allows you to pass additional\narguments. For example, this command runs the tests with a local executable of\nthe server:\nThis command runs the tests with a different Docker image of the server:\nTest\npytest"
+    },
+    {
+        "objectID": "contribute",
+        "href": "contribute.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "You can build the documentation with this tox command:\nThe resulting files are located in the doc/_build/html directory.\nBuild documentation\ntox\ndoc/_build/html"
+    },
+    {
+        "objectID": "contribute",
+        "href": "contribute.html#run-style-checks",
+        "title": "Contribute > Run style checks",
+        "section": "Run style checks",
+        "text": "The style checks use pre-commit and can be run using this tox command:\nYou can also configure the style checks to run automatically before each git commit\nwith this command:\nRun style checks\ngit commit"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#ansys-filetransfer-tool-documentation",
+        "title": "Ansys FileTransfer Tool documentation",
+        "section": "Ansys FileTransfer Tool documentation",
+        "text": "The Ansys FileTransfer Tool is a simple gRPC API for moving files between\na client and a remote server. Its target use case are local Docker deployments or\nsimple remote deployments.\nThis documentation describes the FileTransfer Tool itself. For information on the\nserver component, see the\nFileTransfer Tool Server documentation.\nThe FileTransfer Tool does not provide any security measures. Any file\non the server component can be accessed by any client. Without additional security\nmeasures, it is unsuited for use over an untrusted network.\nExplains how to install the FileTransfer Tool in user mode and then how\nto use it from a Python script.\nDescribes FileTransfer Tool API endpoints so that you can understand how to interact with\nthem programmatically.\nProvides information on how to install the FileTransfer Tool in developer mode and make contributions\nto the codebase and documentation.\nAnsys FileTransfer Tool documentation"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.upload_file",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.upload_file.html#upload_file",
+        "title": "upload_file",
+        "section": "upload_file",
+        "text": "Upload a file to the server.\nlocal_filename (str) – Name of the local file to upload.\nremote_filename (str) – Name of the remote file to create.\nchunk_size (int, default: 65536) – Maximum size in bytes of a chunk of data to transfer per request.\nRuntimeError : – If a response indicates an error on the server-side.\nNone\nupload_file\nstr\nstr\nint\n65536\nNone"
+    },
+    {
+        "objectID": "api/_autosummary/ansys.tools.filetransfer.Client.upload_file",
+        "href": "api/_autosummary/ansys.tools.filetransfer.Client.upload_file.html#ansys.tools.filetransfer.Client.upload_file",
+        "title": "upload_file > upload_file > upload_file",
+        "section": "upload_file > upload_file",
+        "text": "Client.upload_file(local_filename, remote_filename, chunk_size=65536)\n\nUpload a file to the server.\n\nParameters\n\nlocal_filename (str) – Name of the local file to upload.\n\nremote_filename (str) – Name of the remote file to create.\n\nchunk_size (int, default: 65536) – Maximum size in bytes of a chunk of data to transfer per request.\n\nRaises\n\nRuntimeError : – If a response indicates an error on the server-side.\n\nReturn type\n\nNone\n\n!! processed by numpydoc !!"
+    }
+]
