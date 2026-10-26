@@ -763,7 +763,7 @@ version = "1.83.1"
 description = "HTTP/2-based RPC framework"
 optional = false
 python-versions = ">=3.10"
-groups = ["main", "dev"]
+groups = ["main"]
 files = [
     {file = "grpcio-1.83.1-cp310-cp310-linux_armv7l.whl", hash = "sha256:1fea1ae4795d4790579995a4dd5e20e7494d358e29a340e8368dab9723264328"},
     {file = "grpcio-1.83.1-cp310-cp310-macosx_11_0_universal2.whl", hash = "sha256:b7ace1f740b36fcd451a1bb96f71ee7650e60b308822baeb66a023965bc27f4b"},
@@ -830,7 +830,7 @@ version = "1.83.1"
 description = "Standard Health Checking Service for gRPC"
 optional = false
 python-versions = ">=3.10"
-groups = ["dev"]
+groups = ["main"]
 files = [
     {file = "grpcio_health_checking-1.83.1-py3-none-any.whl", hash = "sha256:be7541053f5208bd0805d414ee51a3877323834a1ec6efc8dd39ffed3ebeeb36"},
     {file = "grpcio_health_checking-1.83.1.tar.gz", hash = "sha256:d60924e6fbad38f35c372779bc5eb651a00e446d6d24f1d1c72f14297a1d0e56"},
@@ -1687,7 +1687,7 @@ version = "7.35.1"
 description = ""
 optional = false
 python-versions = ">=3.10"
-groups = ["main", "dev"]
+groups = ["main"]
 files = [
     {file = "protobuf-7.35.1-cp310-abi3-macosx_10_9_universal2.whl", hash = "sha256:24f857477359a85c0c235261b8ba905fd51b2562f4a64ca1df5473f29850cbf6"},
     {file = "protobuf-7.35.1-cp310-abi3-manylinux2014_aarch64.whl", hash = "sha256:11d6b0ec246892d85215b0a13ca6e0233cf5284b68f0ac02646427f4ff88a799"},
@@ -2487,4 +2487,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "594953ea08caf872bf0610c5a806dca42e20d33d6deb10d3639a9921488a5a42"
+content-hash = "04e26141b01ba789878ac8f2a7255d3a176bed41454f7ac27e68b3087c4953d6"
